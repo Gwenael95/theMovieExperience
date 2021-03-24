@@ -1,14 +1,14 @@
 //
-//  coursIos2Tests.swift
-//  coursIos2Tests
+//  TheMovieExperienceTests.swift
+//  TheMovieExperienceTests
 //
-//  Created by GwenaelMarchetti on 22/03/2021.
+//  Created by Hugo Monnerie on 24/03/2021.
 //
 
 import XCTest
-@testable import coursIos2
+@testable import TheMovieExperience
 
-class coursIos2Tests: XCTestCase {
+class TheMovieExperienceTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

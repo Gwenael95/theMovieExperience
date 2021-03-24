@@ -1,13 +1,13 @@
 //
-//  TheMovieExperienceUITests.swift
-//  TheMovieExperienceUITests
+//  coursIos2UITests.swift
+//  coursIos2UITests
 //
-//  Created by Hugo Monnerie on 24/03/2021.
+//  Created by GwenaelMarchetti on 22/03/2021.
 //
 
 import XCTest
 
-class TheMovieExperienceUITests: XCTestCase {
+class coursIos2UITests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -32,7 +32,7 @@ class TheMovieExperienceUITests: XCTestCase {
     }
 
     func testLaunchPerformance() throws {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, *) {
+        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
             // This measures how long it takes to launch your application.
             measure(metrics: [XCTApplicationLaunchMetric()]) {
                 XCUIApplication().launch()

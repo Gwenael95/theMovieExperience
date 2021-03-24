@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  TheMovieExperience
+//  coursIos2
 //
-//  Created by Hugo Monnerie on 24/03/2021.
+//  Created by GwenaelMarchetti on 22/03/2021.
 //
 
 import UIKit

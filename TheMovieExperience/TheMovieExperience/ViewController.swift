@@ -13,7 +13,23 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
+    
+    @IBAction func goToSearchView(_ sender: Any) {
+        if let  vc = UIStoryboard (name: "Main", bundle: nil).instantiateViewController( identifier:"searchView") as? SearchViewController{
 
-
+            self.show(vc, sender: UINavigationController(rootViewController: vc))
+        }
+    }
 }
 
+extension UIView {
+    @IBInspectable
+    var cornerRadius: CGFloat {
+        get {
+            return layer.cornerRadius
+        }
+        set {
+            layer.cornerRadius = newValue
+        }
+    }
+}

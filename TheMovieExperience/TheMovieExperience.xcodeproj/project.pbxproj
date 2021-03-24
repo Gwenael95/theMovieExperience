@@ -15,6 +15,7 @@
 		9A222347260B386A0045C5EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A222345260B386A0045C5EB /* LaunchScreen.storyboard */; };
 		9A222352260B386A0045C5EB /* TheMovieExperienceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A222351260B386A0045C5EB /* TheMovieExperienceTests.swift */; };
 		9A22235D260B386A0045C5EB /* TheMovieExperienceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A22235C260B386A0045C5EB /* TheMovieExperienceUITests.swift */; };
+		9A531287260B3F6400B8728E /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A531286260B3F6400B8728E /* SearchViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		9A222358260B386A0045C5EB /* TheMovieExperienceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TheMovieExperienceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A22235C260B386A0045C5EB /* TheMovieExperienceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheMovieExperienceUITests.swift; sourceTree = "<group>"; };
 		9A22235E260B386A0045C5EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9A531286260B3F6400B8728E /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				9A222343260B386A0045C5EB /* Assets.xcassets */,
 				9A222345260B386A0045C5EB /* LaunchScreen.storyboard */,
 				9A222348260B386A0045C5EB /* Info.plist */,
+				9A531286260B3F6400B8728E /* SearchViewController.swift */,
 			);
 			path = TheMovieExperience;
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 			files = (
 				9A22233F260B38670045C5EB /* ViewController.swift in Sources */,
 				9A22233B260B38670045C5EB /* AppDelegate.swift in Sources */,
+				9A531287260B3F6400B8728E /* SearchViewController.swift in Sources */,
 				9A22233D260B38670045C5EB /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

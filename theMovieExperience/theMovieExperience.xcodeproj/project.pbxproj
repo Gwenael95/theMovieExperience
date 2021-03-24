@@ -13,8 +13,8 @@
 		98B973EA2608E2A9005FB648 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98B973E82608E2A9005FB648 /* Main.storyboard */; };
 		98B973EC2608E2AE005FB648 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98B973EB2608E2AE005FB648 /* Assets.xcassets */; };
 		98B973EF2608E2AE005FB648 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98B973ED2608E2AE005FB648 /* LaunchScreen.storyboard */; };
-		98B973FA2608E2AE005FB648 /* coursIos2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B973F92608E2AE005FB648 /* coursIos2Tests.swift */; };
-		98B974052608E2AF005FB648 /* coursIos2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B974042608E2AF005FB648 /* coursIos2UITests.swift */; };
+		98B973FA2608E2AE005FB648 /* theMovieExperienceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B973F92608E2AE005FB648 /* theMovieExperienceTests.swift */; };
+		98B974052608E2AF005FB648 /* theMovieExperienceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B974042608E2AF005FB648 /* theMovieExperienceUITests.swift */; };
 		98B974132609E332005FB648 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B974122609E332005FB648 /* MainViewController.swift */; };
 		98B97415260A0079005FB648 /* FilmsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B97414260A0079005FB648 /* FilmsController.swift */; };
 		98B97417260A045B005FB648 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B97416260A045B005FB648 /* WebViewController.swift */; };
@@ -38,7 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		98B973DF2608E2A9005FB648 /* coursIos2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = coursIos2.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		98B973DF2608E2A9005FB648 /* theMovieExperience.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = theMovieExperience.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		98B973E22608E2A9005FB648 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		98B973E42608E2A9005FB648 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		98B973E62608E2A9005FB648 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -46,11 +46,11 @@
 		98B973EB2608E2AE005FB648 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		98B973EE2608E2AE005FB648 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		98B973F02608E2AE005FB648 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		98B973F52608E2AE005FB648 /* coursIos2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = coursIos2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		98B973F92608E2AE005FB648 /* coursIos2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = coursIos2Tests.swift; sourceTree = "<group>"; };
+		98B973F52608E2AE005FB648 /* theMovieExperienceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = theMovieExperienceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		98B973F92608E2AE005FB648 /* theMovieExperienceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = theMovieExperienceTests.swift; sourceTree = "<group>"; };
 		98B973FB2608E2AF005FB648 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		98B974002608E2AF005FB648 /* coursIos2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = coursIos2UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		98B974042608E2AF005FB648 /* coursIos2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = coursIos2UITests.swift; sourceTree = "<group>"; };
+		98B974002608E2AF005FB648 /* theMovieExperienceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = theMovieExperienceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		98B974042608E2AF005FB648 /* theMovieExperienceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = theMovieExperienceUITests.swift; sourceTree = "<group>"; };
 		98B974062608E2AF005FB648 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		98B974122609E332005FB648 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		98B97414260A0079005FB648 /* FilmsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmsController.swift; sourceTree = "<group>"; };
@@ -85,9 +85,9 @@
 		98B973D62608E2A9005FB648 = {
 			isa = PBXGroup;
 			children = (
-				98B973E12608E2A9005FB648 /* coursIos2 */,
-				98B973F82608E2AE005FB648 /* coursIos2Tests */,
-				98B974032608E2AF005FB648 /* coursIos2UITests */,
+				98B973E12608E2A9005FB648 /* theMovieExperience */,
+				98B973F82608E2AE005FB648 /* theMovieExperienceTests */,
+				98B974032608E2AF005FB648 /* theMovieExperienceUITests */,
 				98B973E02608E2A9005FB648 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -95,14 +95,14 @@
 		98B973E02608E2A9005FB648 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				98B973DF2608E2A9005FB648 /* coursIos2.app */,
-				98B973F52608E2AE005FB648 /* coursIos2Tests.xctest */,
-				98B974002608E2AF005FB648 /* coursIos2UITests.xctest */,
+				98B973DF2608E2A9005FB648 /* theMovieExperience.app */,
+				98B973F52608E2AE005FB648 /* theMovieExperienceTests.xctest */,
+				98B974002608E2AF005FB648 /* theMovieExperienceUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		98B973E12608E2A9005FB648 /* coursIos2 */ = {
+		98B973E12608E2A9005FB648 /* theMovieExperience */ = {
 			isa = PBXGroup;
 			children = (
 				98B973E22608E2A9005FB648 /* AppDelegate.swift */,
@@ -116,33 +116,33 @@
 				98B97414260A0079005FB648 /* FilmsController.swift */,
 				98B97416260A045B005FB648 /* WebViewController.swift */,
 			);
-			path = coursIos2;
+			path = theMovieExperience;
 			sourceTree = "<group>";
 		};
-		98B973F82608E2AE005FB648 /* coursIos2Tests */ = {
+		98B973F82608E2AE005FB648 /* theMovieExperienceTests */ = {
 			isa = PBXGroup;
 			children = (
-				98B973F92608E2AE005FB648 /* coursIos2Tests.swift */,
+				98B973F92608E2AE005FB648 /* theMovieExperienceTests.swift */,
 				98B973FB2608E2AF005FB648 /* Info.plist */,
 			);
-			path = coursIos2Tests;
+			path = theMovieExperienceTests;
 			sourceTree = "<group>";
 		};
-		98B974032608E2AF005FB648 /* coursIos2UITests */ = {
+		98B974032608E2AF005FB648 /* theMovieExperienceUITests */ = {
 			isa = PBXGroup;
 			children = (
-				98B974042608E2AF005FB648 /* coursIos2UITests.swift */,
+				98B974042608E2AF005FB648 /* theMovieExperienceUITests.swift */,
 				98B974062608E2AF005FB648 /* Info.plist */,
 			);
-			path = coursIos2UITests;
+			path = theMovieExperienceUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		98B973DE2608E2A9005FB648 /* coursIos2 */ = {
+		98B973DE2608E2A9005FB648 /* theMovieExperience */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 98B974092608E2AF005FB648 /* Build configuration list for PBXNativeTarget "coursIos2" */;
+			buildConfigurationList = 98B974092608E2AF005FB648 /* Build configuration list for PBXNativeTarget "theMovieExperience" */;
 			buildPhases = (
 				98B973DB2608E2A9005FB648 /* Sources */,
 				98B973DC2608E2A9005FB648 /* Frameworks */,
@@ -152,14 +152,14 @@
 			);
 			dependencies = (
 			);
-			name = coursIos2;
+			name = theMovieExperience;
 			productName = coursIos2;
-			productReference = 98B973DF2608E2A9005FB648 /* coursIos2.app */;
+			productReference = 98B973DF2608E2A9005FB648 /* theMovieExperience.app */;
 			productType = "com.apple.product-type.application";
 		};
-		98B973F42608E2AE005FB648 /* coursIos2Tests */ = {
+		98B973F42608E2AE005FB648 /* theMovieExperienceTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 98B9740C2608E2AF005FB648 /* Build configuration list for PBXNativeTarget "coursIos2Tests" */;
+			buildConfigurationList = 98B9740C2608E2AF005FB648 /* Build configuration list for PBXNativeTarget "theMovieExperienceTests" */;
 			buildPhases = (
 				98B973F12608E2AE005FB648 /* Sources */,
 				98B973F22608E2AE005FB648 /* Frameworks */,
@@ -170,14 +170,14 @@
 			dependencies = (
 				98B973F72608E2AE005FB648 /* PBXTargetDependency */,
 			);
-			name = coursIos2Tests;
+			name = theMovieExperienceTests;
 			productName = coursIos2Tests;
-			productReference = 98B973F52608E2AE005FB648 /* coursIos2Tests.xctest */;
+			productReference = 98B973F52608E2AE005FB648 /* theMovieExperienceTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		98B973FF2608E2AF005FB648 /* coursIos2UITests */ = {
+		98B973FF2608E2AF005FB648 /* theMovieExperienceUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 98B9740F2608E2AF005FB648 /* Build configuration list for PBXNativeTarget "coursIos2UITests" */;
+			buildConfigurationList = 98B9740F2608E2AF005FB648 /* Build configuration list for PBXNativeTarget "theMovieExperienceUITests" */;
 			buildPhases = (
 				98B973FC2608E2AF005FB648 /* Sources */,
 				98B973FD2608E2AF005FB648 /* Frameworks */,
@@ -188,9 +188,9 @@
 			dependencies = (
 				98B974022608E2AF005FB648 /* PBXTargetDependency */,
 			);
-			name = coursIos2UITests;
+			name = theMovieExperienceUITests;
 			productName = coursIos2UITests;
-			productReference = 98B974002608E2AF005FB648 /* coursIos2UITests.xctest */;
+			productReference = 98B974002608E2AF005FB648 /* theMovieExperienceUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -215,7 +215,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 98B973DA2608E2A9005FB648 /* Build configuration list for PBXProject "coursIos2" */;
+			buildConfigurationList = 98B973DA2608E2A9005FB648 /* Build configuration list for PBXProject "theMovieExperience" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -228,9 +228,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				98B973DE2608E2A9005FB648 /* coursIos2 */,
-				98B973F42608E2AE005FB648 /* coursIos2Tests */,
-				98B973FF2608E2AF005FB648 /* coursIos2UITests */,
+				98B973DE2608E2A9005FB648 /* theMovieExperience */,
+				98B973F42608E2AE005FB648 /* theMovieExperienceTests */,
+				98B973FF2608E2AF005FB648 /* theMovieExperienceUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -280,7 +280,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				98B973FA2608E2AE005FB648 /* coursIos2Tests.swift in Sources */,
+				98B973FA2608E2AE005FB648 /* theMovieExperienceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,7 +288,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				98B974052608E2AF005FB648 /* coursIos2UITests.swift in Sources */,
+				98B974052608E2AF005FB648 /* theMovieExperienceUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,12 +297,12 @@
 /* Begin PBXTargetDependency section */
 		98B973F72608E2AE005FB648 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 98B973DE2608E2A9005FB648 /* coursIos2 */;
+			target = 98B973DE2608E2A9005FB648 /* theMovieExperience */;
 			targetProxy = 98B973F62608E2AE005FB648 /* PBXContainerItemProxy */;
 		};
 		98B974022608E2AF005FB648 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 98B973DE2608E2A9005FB648 /* coursIos2 */;
+			target = 98B973DE2608E2A9005FB648 /* theMovieExperience */;
 			targetProxy = 98B974012608E2AF005FB648 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -449,12 +449,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = coursIos2/Info.plist;
+				INFOPLIST_FILE = theMovieExperience/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.gwen.coursIos2;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.gwen.-theMovieExperience";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -467,12 +467,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = coursIos2/Info.plist;
+				INFOPLIST_FILE = theMovieExperience/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.gwen.coursIos2;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.gwen.-theMovieExperience";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -496,7 +496,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/coursIos2.app/coursIos2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/theMovieExperience.app/theMovieExperience";
 			};
 			name = Debug;
 		};
@@ -517,7 +517,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/coursIos2.app/coursIos2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/theMovieExperience.app/theMovieExperience";
 			};
 			name = Release;
 		};
@@ -562,7 +562,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		98B973DA2608E2A9005FB648 /* Build configuration list for PBXProject "coursIos2" */ = {
+		98B973DA2608E2A9005FB648 /* Build configuration list for PBXProject "theMovieExperience" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				98B974072608E2AF005FB648 /* Debug */,
@@ -571,7 +571,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		98B974092608E2AF005FB648 /* Build configuration list for PBXNativeTarget "coursIos2" */ = {
+		98B974092608E2AF005FB648 /* Build configuration list for PBXNativeTarget "theMovieExperience" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				98B9740A2608E2AF005FB648 /* Debug */,
@@ -580,7 +580,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		98B9740C2608E2AF005FB648 /* Build configuration list for PBXNativeTarget "coursIos2Tests" */ = {
+		98B9740C2608E2AF005FB648 /* Build configuration list for PBXNativeTarget "theMovieExperienceTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				98B9740D2608E2AF005FB648 /* Debug */,
@@ -589,7 +589,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		98B9740F2608E2AF005FB648 /* Build configuration list for PBXNativeTarget "coursIos2UITests" */ = {
+		98B9740F2608E2AF005FB648 /* Build configuration list for PBXNativeTarget "theMovieExperienceUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				98B974102608E2AF005FB648 /* Debug */,

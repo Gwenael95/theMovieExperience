@@ -196,11 +196,12 @@
                         <outlet property="authorsLabel" destination="nz7-m4-Yom" id="lmO-CW-5Kp"/>
                         <outlet property="dateLabel" destination="Tmx-OE-PKb" id="rrj-tt-VdJ"/>
                         <outlet property="filmNameLabel" destination="EPe-L0-N9T" id="4I2-Lg-yw9"/>
+                        <outlet property="posterImageView" destination="0EG-Ak-8W4" id="UP8-dq-dTm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kFz-oA-UtD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3573.913043478261" y="116.51785714285714"/>
+            <point key="canvasLocation" x="2617" y="120"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="eIY-FJ-Prg">

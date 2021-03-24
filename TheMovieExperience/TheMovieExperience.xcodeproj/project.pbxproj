@@ -16,6 +16,7 @@
 		9A222352260B386A0045C5EB /* TheMovieExperienceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A222351260B386A0045C5EB /* TheMovieExperienceTests.swift */; };
 		9A22235D260B386A0045C5EB /* TheMovieExperienceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A22235C260B386A0045C5EB /* TheMovieExperienceUITests.swift */; };
 		9A531287260B3F6400B8728E /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A531286260B3F6400B8728E /* SearchViewController.swift */; };
+		9A531295260B82DC00B8728E /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A531294260B82DC00B8728E /* SettingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		9A22235C260B386A0045C5EB /* TheMovieExperienceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheMovieExperienceUITests.swift; sourceTree = "<group>"; };
 		9A22235E260B386A0045C5EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A531286260B3F6400B8728E /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		9A531294260B82DC00B8728E /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				9A222345260B386A0045C5EB /* LaunchScreen.storyboard */,
 				9A222348260B386A0045C5EB /* Info.plist */,
 				9A531286260B3F6400B8728E /* SearchViewController.swift */,
+				9A531294260B82DC00B8728E /* SettingViewController.swift */,
 			);
 			path = TheMovieExperience;
 			sourceTree = "<group>";
@@ -261,6 +264,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A531295260B82DC00B8728E /* SettingViewController.swift in Sources */,
 				9A22233F260B38670045C5EB /* ViewController.swift in Sources */,
 				9A22233B260B38670045C5EB /* AppDelegate.swift in Sources */,
 				9A531287260B3F6400B8728E /* SearchViewController.swift in Sources */,

@@ -14,6 +14,15 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func goToTrendingView(_ sender: Any) {
+    }
+    
+    @IBAction func goToSettingView(_ sender: Any) {
+        if let  vc = UIStoryboard (name: "Main", bundle: nil).instantiateViewController( identifier:"settingView") as? SettingViewController{
+
+            self.show(vc, sender: UINavigationController(rootViewController: vc))
+        }
+    }
     @IBAction func goToSearchView(_ sender: Any) {
         if let  vc = UIStoryboard (name: "Main", bundle: nil).instantiateViewController( identifier:"searchView") as? SearchViewController{
 

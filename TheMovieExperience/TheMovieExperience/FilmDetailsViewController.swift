@@ -16,10 +16,22 @@ class FilmDetailsViewController: UIViewController {
     var date = "19 mai 1974"
     
     
+    @IBOutlet weak var authorsLabel: UILabel!
+    
+    @IBOutlet weak var actorsLabel: UILabel!
+    
+    @IBOutlet weak var filmNameLabel: UILabel!
+    
+    @IBOutlet weak var dateLabel: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.dateLabel.text = self.date
+        self.filmNameLabel.text = self.filmName
+        self.authorsLabel.text = self.authors.joined(separator: ", ")
+        self.actorsLabel.text = self.actors.joined(separator: ", ")
         // Do any additional setup after loading the view.
     }
     

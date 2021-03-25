@@ -86,6 +86,7 @@ class VideoTableView: UITableView , UITableViewDelegate, UITableViewDataSource  
         if let  vc = UIStoryboard(name:"Main", bundle: nil).instantiateViewController( identifier:"webView") as? WebViewController
         {
             vc.link = self.videos[indexPath.row].videoLink
+            print(vc.link)
             self.window?.rootViewController?.present(vc, animated:true , completion:nil)
         }
     }

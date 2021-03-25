@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="D31-Np-BTK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="SEc-pH-W4l">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18092"/>
@@ -146,7 +146,7 @@
                                                                     </constraints>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EFa-oR-Jw5">
-                                                                    <rect key="frame" x="80" y="2" width="334" height="18"/>
+                                                                    <rect key="frame" x="80" y="0.0" width="334" height="18"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="18" id="N4p-It-vGf"/>
                                                                     </constraints>
@@ -155,7 +155,7 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZNd-HT-sNC">
-                                                                    <rect key="frame" x="80" y="22" width="334" height="21.5"/>
+                                                                    <rect key="frame" x="80" y="22" width="334" height="18"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -163,7 +163,7 @@
                                                             </subviews>
                                                             <constraints>
                                                                 <constraint firstItem="EFa-oR-Jw5" firstAttribute="leading" secondItem="eEs-BI-MkH" secondAttribute="trailing" constant="10" id="7C9-p5-XEM"/>
-                                                                <constraint firstAttribute="bottom" secondItem="ZNd-HT-sNC" secondAttribute="bottom" constant="2" id="C3w-3P-ia4"/>
+                                                                <constraint firstAttribute="bottom" secondItem="ZNd-HT-sNC" secondAttribute="bottom" constant="5.5" id="C3w-3P-ia4"/>
                                                                 <constraint firstAttribute="trailing" secondItem="EFa-oR-Jw5" secondAttribute="trailing" id="P7K-02-Rt1"/>
                                                                 <constraint firstAttribute="bottom" secondItem="eEs-BI-MkH" secondAttribute="bottom" id="W1Z-lV-g6P"/>
                                                                 <constraint firstItem="ZNd-HT-sNC" firstAttribute="leading" secondItem="eEs-BI-MkH" secondAttribute="trailing" constant="10" id="XnR-yc-NAE"/>
@@ -171,8 +171,8 @@
                                                                 <constraint firstItem="eEs-BI-MkH" firstAttribute="leading" secondItem="Hjl-ov-De9" secondAttribute="leading" id="feb-Vg-q6Y"/>
                                                                 <constraint firstItem="ZNd-HT-sNC" firstAttribute="width" secondItem="EFa-oR-Jw5" secondAttribute="width" id="jsq-R7-OP8"/>
                                                                 <constraint firstAttribute="trailing" secondItem="ZNd-HT-sNC" secondAttribute="trailing" id="o5u-89-sEi"/>
-                                                                <constraint firstItem="ZNd-HT-sNC" firstAttribute="top" secondItem="EFa-oR-Jw5" secondAttribute="bottom" constant="2" id="z1w-2S-aIw"/>
-                                                                <constraint firstItem="EFa-oR-Jw5" firstAttribute="top" secondItem="Hjl-ov-De9" secondAttribute="top" constant="2" id="zoc-Gu-Fv7"/>
+                                                                <constraint firstItem="ZNd-HT-sNC" firstAttribute="top" secondItem="EFa-oR-Jw5" secondAttribute="bottom" constant="4" id="z1w-2S-aIw"/>
+                                                                <constraint firstItem="EFa-oR-Jw5" firstAttribute="top" secondItem="Hjl-ov-De9" secondAttribute="top" id="zoc-Gu-Fv7"/>
                                                             </constraints>
                                                         </tableViewCellContentView>
                                                         <connections>

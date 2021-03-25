@@ -6,24 +6,38 @@
 //
 
 import UIKit
+import Foundation
+
 
 class SearchViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    struct Movie : Codable{
+        let original_title: String
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    let properties = Properties.parseConfig()
+    
+    let endpoint = "https://api.themoviedb.org/3/movie/550?api_key=b08dd80fbf5aa44ca65a80f96b6452e2"
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        print(properties.API_KEY)
+        print(properties.API_URL)
+        apiTest()
+        }
+    
+    func apiTest() {
+        if let url = URL(string: endpoint) {
+           URLSession.shared.dataTask(with: url) { data, response, error in
+              if let data = data {
+                  do {
+                     let res = try JSONDecoder().decode(Movie.self, from: data)
+                    print(res.original_title)
+                  } catch let error {
+                     print(error)
+                  }
+               }
+           }.resume()
+        }
     }
-    */
-
-}
+    }

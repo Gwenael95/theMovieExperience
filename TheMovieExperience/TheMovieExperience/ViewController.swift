@@ -23,8 +23,9 @@ class ViewController: UIViewController {
             self.show(vc, sender: UINavigationController(rootViewController: vc))
         }
     }
-    @IBAction func goToSearchView(_ sender: Any) {
-        if let  vc = UIStoryboard (name: "Main", bundle: nil).instantiateViewController( identifier:"searchView") as? SearchViewController{
+    
+    @IBAction func goToResearchView(_ sender: Any) {
+        if let  vc = UIStoryboard (name: "Main", bundle: nil).instantiateViewController( identifier:"mainTableView") as? MainTableViewController{
 
             self.show(vc, sender: UINavigationController(rootViewController: vc))
         }

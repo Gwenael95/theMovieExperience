@@ -1,6 +1,14 @@
+//
+//  TableViewController.swift
+//  TheMovieExperience
+//
+//  Created by Hugo Monnerie on 25/03/2021.
+//
+
 import UIKit
 
-class SearchViewController: UIViewController {
+class TableViewController: UITableViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -42,4 +50,38 @@ class SearchViewController: UIViewController {
         
         setupDataSource()
     }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+           // Update the filtered array based on the search text.
+           let searchResults = products
+
+           // Strip out all the leading and trailing spaces.
+           let whitespaceCharacterSet = CharacterSet.whitespaces
+           let strippedString =
+               searchController.searchBar.text!.trimmingCharacters(in: whitespaceCharacterSet)
+           let searchItems = strippedString.components(separatedBy: " ") as [String]
+
+           // Build all the "AND" expressions for each value in searchString.
+           let andMatchPredicates: [NSPredicate] = searchItems.map { searchString in
+               findMatches(searchString: searchString)
+           }
+
+           // Match up the fields of the Product object.
+           let finalCompoundPredicate =
+               NSCompoundPredicate(andPredicateWithSubpredicates: andMatchPredicates)
+
+           let filteredResults = searchResults.filter { finalCompoundPredicate.evaluate(with: $0) }
+
+           // Apply the filtered results to the search results table.
+           if let resultsController = searchController.searchResultsController as? ResultsTableController {
+               resultsController.filteredProducts = filteredResults
+               resultsController.tableView.reloadData()
+
+               resultsController.resultsLabel.text = resultsController.filteredProducts.isEmpty ?
+                   NSLocalizedString("NoItemsFoundTitle", comment: "") :
+                   String(format: NSLocalizedString("Items found: %ld", comment: ""),
+                          resultsController.filteredProducts.count)
+           }
+       }
+
 }

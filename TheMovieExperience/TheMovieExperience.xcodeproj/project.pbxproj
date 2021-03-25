@@ -15,7 +15,13 @@
 		9A222347260B386A0045C5EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A222345260B386A0045C5EB /* LaunchScreen.storyboard */; };
 		9A222352260B386A0045C5EB /* TheMovieExperienceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A222351260B386A0045C5EB /* TheMovieExperienceTests.swift */; };
 		9A22235D260B386A0045C5EB /* TheMovieExperienceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A22235C260B386A0045C5EB /* TheMovieExperienceUITests.swift */; };
-		9A531287260B3F6400B8728E /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A531286260B3F6400B8728E /* SearchViewController.swift */; };
+		9A2C4BF8260CCC7400BCC6F6 /* ResultsTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2C4BF1260CCC7300BCC6F6 /* ResultsTableController.swift */; };
+		9A2C4BF9260CCC7400BCC6F6 /* MainTableViewController+Updating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2C4BF2260CCC7300BCC6F6 /* MainTableViewController+Updating.swift */; };
+		9A2C4BFA260CCC7400BCC6F6 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2C4BF3260CCC7400BCC6F6 /* DetailViewController.swift */; };
+		9A2C4BFB260CCC7400BCC6F6 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2C4BF4260CCC7400BCC6F6 /* Product.swift */; };
+		9A2C4BFC260CCC7400BCC6F6 /* MainTableViewController+Restore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2C4BF5260CCC7400BCC6F6 /* MainTableViewController+Restore.swift */; };
+		9A2C4BFD260CCC7400BCC6F6 /* MainTableViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2C4BF6260CCC7400BCC6F6 /* MainTableViewController+DataSource.swift */; };
+		9A2C4BFE260CCC7400BCC6F6 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2C4BF7260CCC7400BCC6F6 /* MainTableViewController.swift */; };
 		9A531295260B82DC00B8728E /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A531294260B82DC00B8728E /* SettingViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -51,7 +57,13 @@
 		9A222358260B386A0045C5EB /* TheMovieExperienceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TheMovieExperienceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A22235C260B386A0045C5EB /* TheMovieExperienceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheMovieExperienceUITests.swift; sourceTree = "<group>"; };
 		9A22235E260B386A0045C5EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9A531286260B3F6400B8728E /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		9A2C4BF1260CCC7300BCC6F6 /* ResultsTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ResultsTableController.swift; path = ../../../../Downloads/DisplayingSearchableContentByUsingASearchController/TableSearch/ResultsTableController.swift; sourceTree = "<group>"; };
+		9A2C4BF2260CCC7300BCC6F6 /* MainTableViewController+Updating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "MainTableViewController+Updating.swift"; path = "../../../../Downloads/DisplayingSearchableContentByUsingASearchController/TableSearch/MainTableViewController+Updating.swift"; sourceTree = "<group>"; };
+		9A2C4BF3260CCC7400BCC6F6 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailViewController.swift; path = ../../../../Downloads/DisplayingSearchableContentByUsingASearchController/TableSearch/DetailViewController.swift; sourceTree = "<group>"; };
+		9A2C4BF4260CCC7400BCC6F6 /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Product.swift; path = ../../../../Downloads/DisplayingSearchableContentByUsingASearchController/TableSearch/Product.swift; sourceTree = "<group>"; };
+		9A2C4BF5260CCC7400BCC6F6 /* MainTableViewController+Restore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "MainTableViewController+Restore.swift"; path = "../../../../Downloads/DisplayingSearchableContentByUsingASearchController/TableSearch/MainTableViewController+Restore.swift"; sourceTree = "<group>"; };
+		9A2C4BF6260CCC7400BCC6F6 /* MainTableViewController+DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "MainTableViewController+DataSource.swift"; path = "../../../../Downloads/DisplayingSearchableContentByUsingASearchController/TableSearch/MainTableViewController+DataSource.swift"; sourceTree = "<group>"; };
+		9A2C4BF7260CCC7400BCC6F6 /* MainTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainTableViewController.swift; path = ../../../../Downloads/DisplayingSearchableContentByUsingASearchController/TableSearch/MainTableViewController.swift; sourceTree = "<group>"; };
 		9A531294260B82DC00B8728E /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -110,8 +122,14 @@
 				9A222343260B386A0045C5EB /* Assets.xcassets */,
 				9A222345260B386A0045C5EB /* LaunchScreen.storyboard */,
 				9A222348260B386A0045C5EB /* Info.plist */,
-				9A531286260B3F6400B8728E /* SearchViewController.swift */,
 				9A531294260B82DC00B8728E /* SettingViewController.swift */,
+				9A2C4BF3260CCC7400BCC6F6 /* DetailViewController.swift */,
+				9A2C4BF7260CCC7400BCC6F6 /* MainTableViewController.swift */,
+				9A2C4BF6260CCC7400BCC6F6 /* MainTableViewController+DataSource.swift */,
+				9A2C4BF5260CCC7400BCC6F6 /* MainTableViewController+Restore.swift */,
+				9A2C4BF2260CCC7300BCC6F6 /* MainTableViewController+Updating.swift */,
+				9A2C4BF4260CCC7400BCC6F6 /* Product.swift */,
+				9A2C4BF1260CCC7300BCC6F6 /* ResultsTableController.swift */,
 			);
 			path = TheMovieExperience;
 			sourceTree = "<group>";
@@ -264,11 +282,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A2C4BF9260CCC7400BCC6F6 /* MainTableViewController+Updating.swift in Sources */,
 				9A531295260B82DC00B8728E /* SettingViewController.swift in Sources */,
+				9A2C4BFB260CCC7400BCC6F6 /* Product.swift in Sources */,
 				9A22233F260B38670045C5EB /* ViewController.swift in Sources */,
+				9A2C4BFE260CCC7400BCC6F6 /* MainTableViewController.swift in Sources */,
+				9A2C4BFC260CCC7400BCC6F6 /* MainTableViewController+Restore.swift in Sources */,
+				9A2C4BF8260CCC7400BCC6F6 /* ResultsTableController.swift in Sources */,
 				9A22233B260B38670045C5EB /* AppDelegate.swift in Sources */,
-				9A531287260B3F6400B8728E /* SearchViewController.swift in Sources */,
+				9A2C4BFD260CCC7400BCC6F6 /* MainTableViewController+DataSource.swift in Sources */,
 				9A22233D260B38670045C5EB /* SceneDelegate.swift in Sources */,
+				9A2C4BFA260CCC7400BCC6F6 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

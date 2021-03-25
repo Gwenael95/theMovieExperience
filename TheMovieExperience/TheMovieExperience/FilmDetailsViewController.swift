@@ -60,15 +60,11 @@ class FilmDetailsViewController: UIViewController /* , UITableViewDataSource, UI
     @IBOutlet weak var backgroundImage: UIImageView!
     
     @IBOutlet weak var tableView: VideoTableView!
-    
-    
+            
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
         self.tableView.setupTable(view: self)
-        
-        //self.tableView.delegate = self
-        //self.tableView.dataSource = self
         self.tableView.loadSampleVideos()
         self.loadPage()
     }
@@ -88,56 +84,6 @@ class FilmDetailsViewController: UIViewController /* , UITableViewDataSource, UI
         //self.setImageByDownload(from: urlString)
     }
     
-    
-    /*
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.videos.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        // Table view cells are reused and should be dequeued using a cell identifier.
-        let cellIdentifier = "videoTableViewCell"
-        
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? VideoTableViewCell  else {
-            fatalError("The dequeued cell is not an instance of videoTableViewCell.")
-        }
-        
-        // Fetches the appropriate video for the data source layout.
-        let video = self.videos[indexPath.row]
-        //let imgUrl = URL(string: video.imageLink)
-        
-        cell.videoNameLabel.text = video.name
-        //cell.videoImageView.downloadImage(from: imgUrl!)
-        cell.videoTypeLabel.text = video.type
-        
-        if (indexPath.row % 2 == 0) {
-            cell.backgroundColor = UIColor.purple
-        }
-        else{
-            cell.backgroundColor = UIColor.yellow
-        }
-
-        
-        return cell
-    }
-    
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        if let  vc = UIStoryboard(name:"Main", bundle: nil).instantiateViewController( identifier:"webView") as? WebViewController
-        {
-            vc.link = self.videos[indexPath.row].videoLink
-            self.present(vc, animated:true , completion:nil)
-            
-        }
- 
-    }
- */
     
     
     
@@ -162,16 +108,5 @@ class FilmDetailsViewController: UIViewController /* , UITableViewDataSource, UI
     */
     
     
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

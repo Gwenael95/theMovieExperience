@@ -26,4 +26,5 @@ class Video{
         self.type = type
         self.videoLink = videoLink
     }
+    
 }

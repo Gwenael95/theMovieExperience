@@ -16,6 +16,9 @@ class VideoTableView: UITableView , UITableViewDelegate, UITableViewDataSource  
         self.dataSource = self
     }
     
+    func loadVideos(videos : [Video]){
+        self.videos = videos
+    }
     
     func loadSampleVideos() {
     
@@ -51,13 +54,11 @@ class VideoTableView: UITableView , UITableViewDelegate, UITableViewDataSource  
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        // Table view cells are reused and should be dequeued using a cell identifier.
         let cellIdentifier = "videoTableViewCell"
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? VideoTableViewCell  else {
             fatalError("The dequeued cell is not an instance of videoTableViewCell.")
         }
-        
         
         // Fetches the appropriate video for the data source layout.
         let video = self.videos[indexPath.row]
@@ -81,6 +82,7 @@ class VideoTableView: UITableView , UITableViewDelegate, UITableViewDataSource  
     
     /**
             used to display a web view with a youtube video, lauch thanks to video url (String)
+            When clicking on a cell
      */
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let  vc = UIStoryboard(name:"Main", bundle: nil).instantiateViewController( identifier:"webView") as? WebViewController
@@ -91,14 +93,4 @@ class VideoTableView: UITableView , UITableViewDelegate, UITableViewDataSource  
         }
     }
     
-    
-    
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
-
 }

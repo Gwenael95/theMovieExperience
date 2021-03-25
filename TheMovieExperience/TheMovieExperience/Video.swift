@@ -11,18 +11,19 @@ import UIKit
 class Video{
     //MARK: Properties
     var name : String
-    var image : UIImage?
+    var imageLink : String
     var type: String
-    var link : String
+    var videoLink : String
     
-    init?(name: String, image: UIImage?, type: String, link : String) {
+    init?(name: String, imageLink: String, type: String, videoLink : String) {
         // Initialization should fail if there is no name or if the rating is negative.
-        if name.isEmpty || type.isEmpty  {
+        if name.isEmpty || type.isEmpty || imageLink.isEmpty || videoLink.isEmpty{
             return nil
         }
+        
         self.name = name
-        self.image = image
+        self.imageLink = imageLink
         self.type = type
-        self.link = link
+        self.videoLink = videoLink
     }
 }

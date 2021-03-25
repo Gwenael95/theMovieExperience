@@ -7,13 +7,13 @@
 
 import UIKit
 
-class VideoTableView: UITableView /*, UITableViewDelegate, UITableViewDataSource */ {
+class VideoTableView: UITableView , UITableViewDelegate, UITableViewDataSource  {
 
     var videos = [Video]()
     
     func setupTable(view : UIViewController){
-        //self.delegate = self
-        //self.dataSource = self
+        self.delegate = self
+        self.dataSource = self
     }
     
     
@@ -39,7 +39,7 @@ class VideoTableView: UITableView /*, UITableViewDelegate, UITableViewDataSource
     }
     
     
-    /*
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -85,7 +85,7 @@ class VideoTableView: UITableView /*, UITableViewDelegate, UITableViewDataSource
         }
     }
     
-    */
+    
     
     /*
     // Only override draw() if you perform custom drawing.

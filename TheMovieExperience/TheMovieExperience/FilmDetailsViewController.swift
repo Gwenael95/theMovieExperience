@@ -33,7 +33,7 @@ extension UIImageView {
    }
 }
 
-class FilmDetailsViewController: UIViewController  , UITableViewDataSource, UITableViewDelegate {
+class FilmDetailsViewController: UIViewController /* , UITableViewDataSource, UITableViewDelegate */{
 
     var authors : [String] = ["Stanlee Kubric", "Steven Spielberg"]
     var actors : [String] = ["Jean Dujardin", "Jack Nicholson", "Jean Reno"]
@@ -67,11 +67,11 @@ class FilmDetailsViewController: UIViewController  , UITableViewDataSource, UITa
         super.viewDidLoad()
 
         self.loadPage()
-        //self.tableView.setupTable(view: self)
+        self.tableView.setupTable(view: self)
         
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
-        //self.tableView.loadSampleVideos()
+        //self.tableView.delegate = self
+        //self.tableView.dataSource = self
+        self.tableView.loadSampleVideos()
         /*
         print(self.videoYoutubeUrl)
         let url = URL(string: self.videoYoutubeUrl)!
@@ -98,7 +98,7 @@ class FilmDetailsViewController: UIViewController  , UITableViewDataSource, UITa
     }
     
     
-    
+    /*
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -137,16 +137,16 @@ class FilmDetailsViewController: UIViewController  , UITableViewDataSource, UITa
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        /*
+        
         if let  vc = UIStoryboard(name:"Main", bundle: nil).instantiateViewController( identifier:"webView") as? WebViewController
         {
             vc.link = self.videos[indexPath.row].videoLink
             self.present(vc, animated:true , completion:nil)
             
         }
- */
+ 
     }
-    
+ */
     
     
     

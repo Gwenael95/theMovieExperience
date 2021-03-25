@@ -112,7 +112,7 @@
                                             </label>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="414" placeholderIntrinsicHeight="300" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xU7-xr-ZKF" customClass="VideoTableView" customModule="TheMovieExperience" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="70" width="414" height="300"/>
-                                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="Peo-HM-sJH"/>
                                                 </constraints>
@@ -262,7 +262,7 @@
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="kjQ-1a-B8X"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="ijo-by-vx8" firstAttribute="leading" secondItem="kjQ-1a-B8X" secondAttribute="leading" id="4M3-x1-3cq"/>
                             <constraint firstItem="kjQ-1a-B8X" firstAttribute="trailing" secondItem="ijo-by-vx8" secondAttribute="trailing" id="5EF-x7-pmU"/>
@@ -295,8 +295,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="TopLeft" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eP1-7q-cbi">
-                                <rect key="frame" x="-21" y="4" width="128" height="128"/>
+                            <button opaque="NO" contentMode="TopLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eP1-7q-cbi">
+                                <rect key="frame" x="0.0" y="44" width="32" height="32"/>
                                 <state key="normal" image="close"/>
                                 <connections>
                                     <action selector="closeAction:" destination="xvK-Hf-aS6" eventType="touchUpInside" id="P6D-bT-LpU"/>
@@ -328,7 +328,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nR2-dJ-lz3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3337" y="135"/>
+            <point key="canvasLocation" x="3375" y="120"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="eIY-FJ-Prg">
@@ -357,9 +357,6 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

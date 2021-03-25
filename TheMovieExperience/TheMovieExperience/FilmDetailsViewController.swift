@@ -71,14 +71,6 @@ class FilmDetailsViewController: UIViewController /* , UITableViewDataSource, UI
         //self.tableView.dataSource = self
         self.tableView.loadSampleVideos()
         self.loadPage()
-
-        /*
-        print(self.videoYoutubeUrl)
-        let url = URL(string: self.videoYoutubeUrl)!
-        let request =  URLRequest (url: url)
-        self.webView.load(request)*/
-               
-        // Do any additional setup after loading the view.
     }
     
     func loadPage(){

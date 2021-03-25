@@ -36,9 +36,7 @@ class VideoTableView: UITableView , UITableViewDelegate, UITableViewDataSource  
             fatalError("Unable to instantiate meal1")
         }
         self.videos += [video1, video2, video3]
-        print(video1.name)
-        print(video2.name)
-        print(video3.name)
+        
     }
     
     

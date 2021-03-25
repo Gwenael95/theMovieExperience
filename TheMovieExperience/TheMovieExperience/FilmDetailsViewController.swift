@@ -33,7 +33,7 @@ extension UIImageView {
    }
 }
 
-class FilmDetailsViewController: UIViewController /*, UITableViewDataSource, UITableViewDelegate */{
+class FilmDetailsViewController: UIViewController /* , UITableViewDataSource, UITableViewDelegate */{
 
     var authors : [String] = ["Stanlee Kubric", "Steven Spielberg"]
     var actors : [String] = ["Jean Dujardin", "Jack Nicholson", "Jean Reno"]
@@ -47,6 +47,9 @@ class FilmDetailsViewController: UIViewController /*, UITableViewDataSource, UIT
     // get video keys for youtube : https://api.themoviedb.org/3/movie/551/videos?api_key=b08dd80fbf5aa44ca65a80f96b6452e2&language=en-US
     
     let previewImgYoutubeUrl = "https://i.ytimg.com/vi/" + "ftTX4FoBWlE" + "/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&amp;rs=AOn4CLCw1BAmwgAuP1vSuZ4ucr35TYfmOA"
+    
+    var videos = [Video]()
+
     
     @IBOutlet weak var authorsLabel: UILabel!
     @IBOutlet weak var actorsLabel: UILabel!
@@ -64,6 +67,8 @@ class FilmDetailsViewController: UIViewController /*, UITableViewDataSource, UIT
         super.viewDidLoad()
 
         self.loadPage()
+        self.tableView.setupTable(view: self)
+        
         //self.tableView.delegate = self
         //self.tableView.dataSource = self
         self.tableView.loadSampleVideos()
@@ -92,10 +97,64 @@ class FilmDetailsViewController: UIViewController /*, UITableViewDataSource, UIT
         //self.setImageByDownload(from: urlString)
     }
     
+    
+    /*
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.videos.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        // Table view cells are reused and should be dequeued using a cell identifier.
+        let cellIdentifier = "videoTableViewCell"
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? VideoTableViewCell  else {
+            fatalError("The dequeued cell is not an instance of videoTableViewCell.")
+        }
+        
+        // Fetches the appropriate video for the data source layout.
+        let video = self.videos[indexPath.row]
+        //let imgUrl = URL(string: video.imageLink)
+        
+        cell.videoNameLabel.text = video.name
+        //cell.videoImageView.downloadImage(from: imgUrl!)
+        cell.videoTypeLabel.text = video.type
+        
+        if (indexPath.row % 2 == 0) {
+            cell.backgroundColor = UIColor.purple
+        }
+        else{
+            cell.backgroundColor = UIColor.yellow
+        }
+
+        
+        return cell
+    }
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if let  vc = UIStoryboard(name:"Main", bundle: nil).instantiateViewController( identifier:"webView") as? WebViewController
+        {
+            vc.link = self.videos[indexPath.row].videoLink
+            self.present(vc, animated:true , completion:nil)
+            
+        }
+ 
+    }
+ */
+    
+    
+    
     /**
      @deprecated
         used to download and set an image in a UIImageView
      */
+    /*
     func setImageByDownload(from url: String, imageView : UIImageView) {
         guard let imageURL = URL(string: url) else { return }
 
@@ -109,7 +168,7 @@ class FilmDetailsViewController: UIViewController /*, UITableViewDataSource, UIT
             }
         }
     }
-    
+    */
     
     
     

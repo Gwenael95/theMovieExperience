@@ -7,12 +7,14 @@
 
 import UIKit
 
+
+
+
 class VideoTableViewCell: UITableViewCell{
 
     
     @IBOutlet weak var videoNameLabel: UILabel!
     @IBOutlet weak var videoTypeLabel: UILabel!
-    
     @IBOutlet weak var videoImageView: UIImageView!
     
     

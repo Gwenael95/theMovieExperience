@@ -56,7 +56,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1641" y="120"/>
+            <point key="canvasLocation" x="1641" y="-409"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="yff-hC-U8m">
@@ -67,8 +67,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YeY-vX-miT">
-                                <rect key="frame" x="127" y="451" width="160" height="48"/>
+                                <rect key="frame" x="127" y="282" width="161" height="161"/>
                                 <color key="backgroundColor" systemColor="separatorColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="161" id="Lfe-cH-gGS"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="Research">
                                     <color key="titleColor" systemColor="labelColor"/>
@@ -85,16 +88,55 @@
                                     <action selector="goToSearchView:" destination="gXY-Bx-Rgx" eventType="touchUpInside" id="1W1-77-luU"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="p6b-VE-MaD">
+                                <rect key="frame" x="127" y="572" width="161" height="161"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="separatorColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Trending">
+                                    <color key="titleColor" systemColor="labelColor"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="goToTrendingView:" destination="gXY-Bx-Rgx" eventType="touchUpInside" id="icF-cJ-ZqW"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="F7H-YS-OoW" userLabel="Setting">
+                                <rect key="frame" x="349" y="115" width="45" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                <color key="tintColor" systemColor="labelColor"/>
+                                <state key="normal" image="gearshape" catalog="system">
+                                    <color key="titleColor" systemColor="labelColor"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="goToSettingView:" destination="gXY-Bx-Rgx" eventType="touchUpInside" id="4ua-XR-n9M"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="9aX-iz-3Wi"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="YeY-vX-miT" firstAttribute="centerX" secondItem="6nH-Jq-Ryy" secondAttribute="centerX" id="1jf-f7-62l"/>
-                            <constraint firstItem="YeY-vX-miT" firstAttribute="top" secondItem="9aX-iz-3Wi" secondAttribute="top" constant="363" id="Xle-RW-0U3"/>
-                            <constraint firstItem="YeY-vX-miT" firstAttribute="leading" secondItem="9aX-iz-3Wi" secondAttribute="leading" constant="127" id="yY7-b4-Dl8"/>
+                            <constraint firstItem="YeY-vX-miT" firstAttribute="leading" secondItem="p6b-VE-MaD" secondAttribute="leading" id="4Mk-y2-jDt"/>
+                            <constraint firstItem="YeY-vX-miT" firstAttribute="top" secondItem="9aX-iz-3Wi" secondAttribute="top" constant="194" id="Iwz-hi-uYa"/>
+                            <constraint firstItem="YeY-vX-miT" firstAttribute="trailing" secondItem="p6b-VE-MaD" secondAttribute="trailing" id="Nqy-WD-LEi"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" id="n1k-FB-3p1"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vg5-6P-nvs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <command title="Item" id="v6Y-tM-OKf" userLabel="On"/>
@@ -363,8 +405,12 @@
     </scenes>
     <resources>
         <image name="close" width="32" height="32"/>
+        <image name="gearshape" catalog="system" width="128" height="121"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="separatorColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>

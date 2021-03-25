@@ -36,6 +36,9 @@ class VideoTableView: UITableView , UITableViewDelegate, UITableViewDataSource  
             fatalError("Unable to instantiate meal1")
         }
         self.videos += [video1, video2, video3]
+        print(video1.name)
+        print(video2.name)
+        print(video3.name)
     }
     
     
@@ -66,17 +69,21 @@ class VideoTableView: UITableView , UITableViewDelegate, UITableViewDataSource  
         cell.videoImageView.downloadImage(from: imgUrl!)
         cell.videoTypeLabel.text = video.type
         
+        /* customised background
         if (indexPath.row % 2 == 0) {
             cell.backgroundColor = UIColor.purple
         }
         else{
             cell.backgroundColor = UIColor.yellow
         }
-        
+        */
         return cell
     }
     
     
+    /**
+            used to display a web view with a youtube video, lauch thanks to video url (String)
+     */
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let  vc = UIStoryboard(name:"Main", bundle: nil).instantiateViewController( identifier:"webView") as? WebViewController
         {

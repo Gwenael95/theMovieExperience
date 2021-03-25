@@ -57,7 +57,6 @@ class FilmDetailsViewController: UIViewController /* , UITableViewDataSource, UI
     @IBOutlet weak var filmNameLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     
-    @IBOutlet weak var posterImageView: UIImageView!
     @IBOutlet weak var backgroundImage: UIImageView!
     
     @IBOutlet weak var tableView: VideoTableView!
@@ -66,12 +65,13 @@ class FilmDetailsViewController: UIViewController /* , UITableViewDataSource, UI
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.loadPage()
         self.tableView.setupTable(view: self)
         
         //self.tableView.delegate = self
         //self.tableView.dataSource = self
         self.tableView.loadSampleVideos()
+        self.loadPage()
+
         /*
         print(self.videoYoutubeUrl)
         let url = URL(string: self.videoYoutubeUrl)!
@@ -92,7 +92,6 @@ class FilmDetailsViewController: UIViewController /* , UITableViewDataSource, UI
         self.actorsLabel.text = actors
         
         let url = URL(string: urlString)
-        self.posterImageView.downloadImage(from: url!)
         self.backgroundImage.downloadImage(from: url!)
         //self.setImageByDownload(from: urlString)
     }

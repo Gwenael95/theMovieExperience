@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Foundation
 
 class SearchViewController: UIViewController, UITableViewDataSource, UISearchBarDelegate {
     
@@ -14,13 +15,20 @@ class SearchViewController: UIViewController, UITableViewDataSource, UISearchBar
     @IBOutlet weak var searchBar: UISearchBar!
     
     
-    let data = ["New York, NY", "Los Angeles, CA", "Chicago, IL", "Houston, TX",
+    var data = ["New York, NY", "Los Angeles, CA", "Chicago, IL", "Houston, TX",
         "Philadelphia, PA", "Phoenix, AZ", "San Diego, CA", "San Antonio, TX",
         "Dallas, TX", "Detroit, MI", "San Jose, CA", "Indianapolis, IN",
         "Jacksonville, FL", "San Francisco, CA", "Columbus, OH", "Austin, TX",
         "Memphis, TN", "Baltimore, MD", "Charlotte, ND", "Fort Worth, TX"]
 
     var filteredData: [String]!
+
+    struct Movie : Codable{
+        let original_title: String
+    }
+        
+    let endpoint = "https://api.themoviedb.org/3/movie/550?api_key=b08dd80fbf5aa44ca65a80f96b6452e2"
+    let apiMovie = ApiMovieDb()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,14 +49,36 @@ class SearchViewController: UIViewController, UITableViewDataSource, UISearchBar
 
     // This method updates filteredData based on the text in the Search Box
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
-        filteredData = searchText.isEmpty ? data : data.filter { (item: String) -> Bool in
-            // If dataItem matches the searchText, return true to include it
-            return item.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
+        //@todo :  launch api request with searchbar content
+        //let movies = apiMovie.searchMovie(query: searchBar.text!)
+        //print(movies)
+        //self.data = movies
+        let _: () = apiMovie.getJson() { result in
+            print(result)
+           
+            DispatchQueue.main.async {
+                self.data = result
+                self.tableView.reloadData()
+            }
+
         }
         
-        //@todo :  launch api request with searchbar content
         
-        tableView.reloadData()
+        //tableView.reloadData()
+    }
+    
+    func apiTest() {
+        if let url = URL(string: endpoint) {
+           URLSession.shared.dataTask(with: url) { data, response, error in
+              if let data = data {
+                  do {
+                     let res = try JSONDecoder().decode(Movie.self, from: data)
+                    print(res.original_title)
+                  } catch let error {
+                     print(error)
+                  }
+               }
+           }.resume()
+        }
     }
 }

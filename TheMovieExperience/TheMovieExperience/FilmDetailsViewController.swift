@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import WebKit
 
 extension UIImageView {
     
@@ -32,7 +33,7 @@ extension UIImageView {
    }
 }
 
-class FilmDetailsViewController: UIViewController {
+class FilmDetailsViewController: UIViewController /*, UITableViewDataSource, UITableViewDelegate */{
 
     var authors : [String] = ["Stanlee Kubric", "Steven Spielberg"]
     var actors : [String] = ["Jean Dujardin", "Jack Nicholson", "Jean Reno"]
@@ -42,8 +43,10 @@ class FilmDetailsViewController: UIViewController {
     let apiImgUrl = "https://image.tmdb.org/t/p/w500/" // + path
     // get image by language https://api.themoviedb.org/3/movie/551/images?api_key=b08dd80fbf5aa44ca65a80f96b6452e2&language=en
     
-    let videoYoutubeUrl = "https://www.youtube.com/watch?v=" // + key
+    let videoYoutubeUrl = "https://www.youtube.com/watch?v=" + "ftTX4FoBWlE" // + key
     // get video keys for youtube : https://api.themoviedb.org/3/movie/551/videos?api_key=b08dd80fbf5aa44ca65a80f96b6452e2&language=en-US
+    
+    let previewImgYoutubeUrl = "https://i.ytimg.com/vi/" + "ftTX4FoBWlE" + "/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&amp;rs=AOn4CLCw1BAmwgAuP1vSuZ4ucr35TYfmOA"
     
     @IBOutlet weak var authorsLabel: UILabel!
     @IBOutlet weak var actorsLabel: UILabel!
@@ -54,12 +57,22 @@ class FilmDetailsViewController: UIViewController {
     @IBOutlet weak var posterImageView: UIImageView!
     @IBOutlet weak var backgroundImage: UIImageView!
     
+    @IBOutlet weak var tableView: VideoTableView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.loadPage()
-       
+        //self.tableView.delegate = self
+        //self.tableView.dataSource = self
+        self.tableView.loadSampleVideos()
+        /*
+        print(self.videoYoutubeUrl)
+        let url = URL(string: self.videoYoutubeUrl)!
+        let request =  URLRequest (url: url)
+        self.webView.load(request)*/
+               
         // Do any additional setup after loading the view.
     }
     

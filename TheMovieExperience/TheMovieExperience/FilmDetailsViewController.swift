@@ -8,31 +8,6 @@
 import UIKit
 import WebKit
 
-extension UIImageView {
-    
-    /**
-     get data from an url
-    */
-   func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
-      URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
-   }
-    
-    /**
-     download image from an url to display image to the current UIImageView
-     */
-   func downloadImage(from url: URL) {
-      getData(from: url) {
-         data, response, error in
-         guard let data = data, error == nil else {
-            return
-         }
-         DispatchQueue.main.async() {
-            self.image = UIImage(data: data)
-         }
-      }
-   }
-}
-
 class FilmDetailsViewController: UIViewController {
     var filmName = "La derniere bataille"
     var id = 1

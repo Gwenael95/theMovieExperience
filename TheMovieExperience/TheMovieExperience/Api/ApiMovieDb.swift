@@ -8,30 +8,6 @@
 import Foundation
 import UIKit
 
-extension CharacterSet {
-
-    /// Returns the character set for characters allowed in the individual parameters within a query URL component.
-    ///
-    /// The query component of a URL is the component immediately following a question mark (?).
-    /// For example, in the URL `http://www.example.com/index.php?key1=value1#jumpLink`, the query
-    /// component is `key1=value1`. The individual parameters of that query would be the key `key1`
-    /// and its associated value `value1`.
-    ///
-    /// According to RFC 3986, the set of unreserved characters includes
-    ///
-    /// `ALPHA / DIGIT / "-" / "." / "_" / "~"`
-    ///
-    /// In section 3.4 of the RFC, it further recommends adding `/` and `?` to the list of unescaped characters
-    /// for the sake of compatibility with some erroneous implementations, so this routine also allows those
-    /// to pass unescaped.
-
-
-    static func urlQueryCustomValueAllowed() -> CharacterSet {
-        return CharacterSet(charactersIn: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._~:/?&=")
-    }
-
-}
-
 class ApiMovieDb {
     let properties = Properties.parseConfig()
 
@@ -61,6 +37,15 @@ class ApiMovieDb {
         return "https://www.youtube.com/watch?v=" + key
     }
     
+    func getSession() -> URLSession{
+        let config = URLSessionConfiguration.default
+        return URLSession(configuration: config)
+    }
+    
+    func getRequest(urlString : String) ->URLRequest {
+        let urlFind = URL(string: urlString)
+        return URLRequest(url: urlFind!)
+    }
     
     /**
         because of API, page =1 return 20 result. we don't want to display more than this
@@ -69,17 +54,11 @@ class ApiMovieDb {
     // @ todo : fix error when space or special char
     func searchMoviesByName(query:String, completion: @escaping ([Movie]) -> Void) {
         
-        //let urlString = self.getSearchUrl(query: query)
         let urlString = self.getSearchUrl(query: query) .addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryCustomValueAllowed())
     
         var movies = [Movie]()
-        let config = URLSessionConfiguration.default
-        let session = URLSession(configuration: config)
         
-        let urlFind = URL(string: urlString!)
-        let request = URLRequest(url: urlFind!)
-
-        session.dataTask(with:request, completionHandler: { (data, response, error) in
+        self.getSession().dataTask(with:self.getRequest(urlString: urlString!), completionHandler: { (data, response, error) in
             guard let data = data, error == nil else { return }
 
             if let json = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) {
@@ -97,51 +76,34 @@ class ApiMovieDb {
 
         }).resume()
     }
-
-
     
     
-    func searchMovieDetails(id:Int, completion: @escaping (MovieDetails) -> Void) {
+    func searchMovieDetails(id:Int, completion: @escaping (MovieDetails?) -> Void) {
         let urlString = self.getMovieDetailsUrl(id: id)
         
-        var movieDetails = MovieDetails(original_title: "", id: 1, release_date: "", poster_path: "", genres: [], vote_average: 0, overview: "")
-        
-        let config = URLSessionConfiguration.default
-        let session = URLSession(configuration: config)
-        
-        let urlFind = URL(string: urlString)
-        let request = URLRequest(url: urlFind!)
-        print("try for id = \(id) , url = " + urlString)
-        session.dataTask(with:request, completionHandler: { (data, response, error) in
+        self.getSession().dataTask(with:self.getRequest(urlString: urlString), completionHandler: { (data, response, error) in
             guard let data = data, error == nil else { return }
 
-                if let json = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) {
-                    if let data = json as? [String: AnyObject] {
-                        if let movie = MovieDetails(json:data){
-                            movieDetails = movie
-                        }
-                        else{
-                            print("fail , json issn't goof for id = \(id) , url = " + urlString)
-                            print(data)
-                        }
+            if let json = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) {
+                if let data = json as? [String: AnyObject] {
+                    if let movieDetails = MovieDetails(json:data){
+                        completion(movieDetails)
+                    }
+                    else{
+                        completion(nil)
                     }
                 }
-                completion(movieDetails)
-
+            }
         }).resume()
     }
 
+    
     func searchMovieVideos(id:Int, completion: @escaping ([MovieVideo]) -> Void) {
         let urlString = self.getAllMovieVideo(id: id, language: nil)
         
         var movies = [MovieVideo]()
-        let config = URLSessionConfiguration.default
-        let session = URLSession(configuration: config)
         
-        let urlFind = URL(string: urlString)
-        let request = URLRequest(url: urlFind!)
-
-        session.dataTask(with:request, completionHandler: { (data, response, error) in
+        self.getSession().dataTask(with:self.getRequest(urlString: urlString), completionHandler: { (data, response, error) in
             guard let data = data, error == nil else { return }
 
             if let json = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) {

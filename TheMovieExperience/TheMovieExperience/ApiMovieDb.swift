@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+
 class ApiMovieDb {
     let properties = Properties.parseConfig()
 
@@ -16,19 +17,22 @@ class ApiMovieDb {
     
     let endpoint = "https://api.themoviedb.org/3/movie/550?api_key=b08dd80fbf5aa44ca65a80f96b6452e2"
     
+    
+    func getSearchUrl(query : String) -> String{
+       return "https://api.themoviedb.org/3/search/movie?api_key=" + properties.API_KEY + "&query=" + query + "&page=1"
+    }
     /**
         because of API, page =1 return 20 result. we don't want to display more than this
         to avoid problem when loading
      */
     func searchMovie(query : String) -> [String]{
-        let urlString = "https://api.themoviedb.org/3/search/movie?api_key=" + properties.API_KEY + "&query=" + query + "&page=1"
-    
+        let urlString = self.getSearchUrl(query: query)
         var movies = [String]()
         let config = URLSessionConfiguration.default
         let session = URLSession(configuration: config)
        
         let url = URL(string: urlString)!
-        
+
         let task = session.dataTask(with: url) { (data, response, error) in
             if error != nil {
                 print(error!.localizedDescription)
@@ -52,9 +56,11 @@ class ApiMovieDb {
     }
     
     
-    func getJson( completion: @escaping ([String]) -> Void) {
+    // @ todo : fix error when space or special char
+    func getJson(query:String, completion: @escaping ([String]) -> Void) {
         
-        let urlString = "https://api.themoviedb.org/3/search/movie?api_key=" + properties.API_KEY + "&query=last&page=1"
+        let urlString = self.getSearchUrl(query: query)
+        //let urlString = self.getSearchUrl(query: query) .addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
     
         var movies = [String]()
         let config = URLSessionConfiguration.default

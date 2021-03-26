@@ -21,7 +21,6 @@ class SearchViewController: UIViewController, UITableViewDataSource, UISearchBar
         "Jacksonville, FL", "San Francisco, CA", "Columbus, OH", "Austin, TX",
         "Memphis, TN", "Baltimore, MD", "Charlotte, ND", "Fort Worth, TX"]
 
-    var filteredData: [String]!
 
     struct Movie : Codable{
         let original_title: String
@@ -34,26 +33,56 @@ class SearchViewController: UIViewController, UITableViewDataSource, UISearchBar
         super.viewDidLoad()
         tableView.dataSource = self
         searchBar.delegate = self
-        filteredData = data
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableCell", for: indexPath) as UITableViewCell
-        cell.textLabel?.text = filteredData[indexPath.row]
+        cell.textLabel?.text = data[indexPath.row]
         return cell
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return filteredData.count
+        return data.count
     }
 
-    // This method updates filteredData based on the text in the Search Box
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        self.data.removeAll()
+        
+        /*
+         at least it works, but try another way
+        let urlString = apiMovie.getSearchUrl(query: searchBar.text!);
+        let config = URLSessionConfiguration.default
+        let session = URLSession(configuration: config)
+       
+        let url = URL(string: urlString)!
+        
+        let task = session.dataTask(with: url) { (data, response, error) in
+            if error != nil {
+                print(error!.localizedDescription)
+            } else {
+                if let json = try? JSONSerialization.jsonObject(with: data!, options: .mutableContainers) {
+                    if let data = json as? [String: AnyObject] {
+                        if let items = data["results"] as? [[String: AnyObject]] {
+                            for item in items {
+                                self.data.append(item["original_title"]! as! String)
+                            }
+                        }
+                    }
+                }
+            }
+            DispatchQueue.main.async  {
+                self.tableView.reloadData()
+            }
+        }
+        task.resume()
+        */
+        
+        
         //@todo :  launch api request with searchbar content
         //let movies = apiMovie.searchMovie(query: searchBar.text!)
         //print(movies)
         //self.data = movies
-        let _: () = apiMovie.getJson() { result in
+        let _: () = apiMovie.getJson(query:searchBar.text!) { result in
             print(result)
            
             DispatchQueue.main.async {
@@ -65,6 +94,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UISearchBar
         
         
         //tableView.reloadData()
+ 
     }
     
     func apiTest() {

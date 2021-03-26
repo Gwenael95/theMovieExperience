@@ -69,6 +69,9 @@ class FilmDetailsViewController: UIViewController {
     @IBOutlet weak var overviewLabel: UILabel!
     @IBOutlet weak var noteLabel: UILabel!
     
+    @IBOutlet weak var rateView: RatesStackView!
+    
+    
     @IBOutlet weak var genresLabel: UILabel!
     
     override func viewDidLoad() {
@@ -111,7 +114,7 @@ class FilmDetailsViewController: UIViewController {
         self.overviewLabel.text = overView
         self.genresLabel.text = genres
         self.noteLabel.text = "\(note)"
-        
+        self.rateView.updateUIRate(rateValue: note)
         let url = URL(string: urlString)
         self.backgroundImage.downloadImage(from: url!)
         //self.setImageByDownload(from: urlString)

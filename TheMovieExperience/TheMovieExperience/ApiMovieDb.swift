@@ -136,23 +136,19 @@ class ApiMovieDb {
         session.dataTask(with:request, completionHandler: { (data, response, error) in
             guard let data = data, error == nil else { return }
 
-            do {
-                if let json = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) {
-                    if let data = json as? [String: AnyObject] {
-                        if let items = data["results"] as? [[String: AnyObject]] {
-                            for item in items {
-                                if let movie = Movie(json:item){
-                                    movies.append(movie)
-                                }
+            if let json = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) {
+                if let data = json as? [String: AnyObject] {
+                    if let items = data["results"] as? [[String: AnyObject]] {
+                        for item in items {
+                            if let movie = Movie(json:item){
+                                movies.append(movie)
                             }
                         }
                     }
                 }
-                completion(movies)
-
-            } catch let error as NSError {
-                completion([])
             }
+            completion(movies)
+
         }).resume()
     }
 
@@ -202,23 +198,19 @@ class ApiMovieDb {
         session.dataTask(with:request, completionHandler: { (data, response, error) in
             guard let data = data, error == nil else { return }
 
-            do {
-                if let json = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) {
-                    if let data = json as? [String: AnyObject] {
-                        if let items = data["results"] as? [[String: AnyObject]] {
-                            for item in items {
-                                if let movie = MovieVideo(json:item){
-                                    movies.append(movie)
-                                }
+            if let json = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) {
+                if let data = json as? [String: AnyObject] {
+                    if let items = data["results"] as? [[String: AnyObject]] {
+                        for item in items {
+                            if let movie = MovieVideo(json:item){
+                                movies.append(movie)
                             }
                         }
                     }
                 }
-                completion(movies)
-
-            } catch let error as NSError {
-                completion([])
             }
+            completion(movies)
+
         }).resume()
     }
     

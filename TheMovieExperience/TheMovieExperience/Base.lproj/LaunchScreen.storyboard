@@ -15,7 +15,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Movie Experience" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qgg-hR-K1b">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Movie Experience" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qgg-hR-K1b">
                                 <rect key="frame" x="0.0" y="351.5" width="414" height="203"/>
                                 <fontDescription key="fontDescription" name="Zapfino" family="Zapfino" pointSize="30"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -27,7 +27,6 @@
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="leading" secondItem="qgg-hR-K1b" secondAttribute="leading" id="Sse-bn-MWh"/>
                             <constraint firstItem="qgg-hR-K1b" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="WfU-vt-Nlt"/>
-                            <constraint firstItem="qgg-hR-K1b" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="p94-z3-vqG"/>
                             <constraint firstItem="qgg-hR-K1b" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="pJY-I9-83h"/>
                         </constraints>
                     </view>

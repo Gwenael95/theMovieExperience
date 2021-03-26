@@ -9,6 +9,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -16,15 +17,7 @@ class ViewController: UIViewController {
     @IBAction func goToTrendingView(_ sender: Any) {
     }
     
-    /**
-        will be used if having time for setting view
-     */
-    @IBAction func goToSettingView(_ sender: Any) {
-        if let  vc = UIStoryboard (name: "Main", bundle: nil).instantiateViewController( identifier:"settingView") as? SettingViewController{
 
-            self.show(vc, sender: UINavigationController(rootViewController: vc))
-        }
-    }
     
     /**
         used to go to search view with navigation controller

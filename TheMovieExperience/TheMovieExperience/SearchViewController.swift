@@ -8,21 +8,18 @@
 import UIKit
 import Foundation
 
+
 class SearchViewController: UIViewController, UITableViewDataSource, UITableViewDelegate,  UISearchBarDelegate {
     
     @IBOutlet weak var tableView: UITableView!
-    
     @IBOutlet weak var searchBar: UISearchBar!
-    
     
     var data  = [Movie]()
         
-    let endpoint = "https://api.themoviedb.org/3/movie/550?api_key=b08dd80fbf5aa44ca65a80f96b6452e2"
     let apiMovie = ApiMovieDb()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        data.append(Movie(original_title:"test", id:123))
         tableView.dataSource = self
         tableView.delegate = self
         searchBar.delegate = self

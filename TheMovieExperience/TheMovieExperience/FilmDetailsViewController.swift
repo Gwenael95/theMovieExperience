@@ -33,23 +33,26 @@ extension UIImageView {
    }
 }
 
-class FilmDetailsViewController: UIViewController /* , UITableViewDataSource, UITableViewDelegate */{
+class FilmDetailsViewController: UIViewController {
 
     var authors : [String] = ["Stanlee Kubric", "Steven Spielberg"]
     var actors : [String] = ["Jean Dujardin", "Jack Nicholson", "Jean Reno"]
     var filmName = "La derniere bataille"
     var poster = "https://image.blockbusterbd.net/00416_main_image_04072019225805.png" // an url
     var date = "19 mai 1974"
-    let apiImgUrl = "https://image.tmdb.org/t/p/w500/" // + path
-    // get image by language https://api.themoviedb.org/3/movie/551/images?api_key=b08dd80fbf5aa44ca65a80f96b6452e2&language=en
+    var apiImgUrl = "https://image.tmdb.org/t/p/w500/" // + path
+    //url to get images by language =  https://api.themoviedb.org/3/movie/551/images?api_key=b08dd80fbf5aa44ca65a80f96b6452e2&language=en
     
-    let videoYoutubeUrl = "https://www.youtube.com/watch?v=" + "ftTX4FoBWlE" // + key
-    // get video keys for youtube : https://api.themoviedb.org/3/movie/551/videos?api_key=b08dd80fbf5aa44ca65a80f96b6452e2&language=en-US
+    var videoYoutubeUrl = "https://www.youtube.com/watch?v=" + "ftTX4FoBWlE" // + key
+    // get videos keys for youtube : https://api.themoviedb.org/3/movie/551/videos?api_key=b08dd80fbf5aa44ca65a80f96b6452e2&language=en-US
     
-    let previewImgYoutubeUrl = "https://i.ytimg.com/vi/" + "ftTX4FoBWlE" + "/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&amp;rs=AOn4CLCw1BAmwgAuP1vSuZ4ucr35TYfmOA"
+    var previewImgYoutubeUrl = "https://i.ytimg.com/vi/" + "ftTX4FoBWlE" + "/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&amp;rs=AOn4CLCw1BAmwgAuP1vSuZ4ucr35TYfmOA"
     
     var videos = [Video]()
     var id = 1
+    
+    let apiMovie = ApiMovieDb()
+
     
     @IBOutlet weak var authorsLabel: UILabel!
     @IBOutlet weak var actorsLabel: UILabel!
@@ -66,11 +69,23 @@ class FilmDetailsViewController: UIViewController /* , UITableViewDataSource, UI
         super.viewDidLoad()
         self.tableView.setupTable(view: self)
         self.tableView.loadSampleVideos()
-        self.loadPage()
+
+        let _: () = apiMovie.searchMovieDetails(id:self.id) { result in
+           
+            DispatchQueue.main.async {
+                self.filmName = result.original_title
+                self.date = result.release_date
+                self.apiImgUrl = self.apiMovie.getImage(path: result.poster_path)
+                self.tableView.reloadData()
+                self.loadPage()
+            }
+
+        }
+        //self.loadPage()
     }
     
     func loadPage(){
-        setUIContent(date: self.date, filmName: self.filmName, authors: self.authors.joined(separator: ", "), actors: self.actors.joined(separator: ", "), urlString:self.poster)
+        setUIContent(date: self.date, filmName: self.filmName, authors: self.authors.joined(separator: ", "), actors: self.actors.joined(separator: ", "), urlString:self.apiImgUrl)
     }
     
     func setUIContent(date : String, filmName: String, authors:String, actors:String, urlString:String){

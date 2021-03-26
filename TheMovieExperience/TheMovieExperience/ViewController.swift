@@ -11,18 +11,24 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
     
     @IBAction func goToTrendingView(_ sender: Any) {
     }
     
+    /**
+        will be used if having time for setting view
+     */
     @IBAction func goToSettingView(_ sender: Any) {
         if let  vc = UIStoryboard (name: "Main", bundle: nil).instantiateViewController( identifier:"settingView") as? SettingViewController{
 
             self.show(vc, sender: UINavigationController(rootViewController: vc))
         }
     }
+    
+    /**
+        used to go to search view with navigation controller
+     */
     @IBAction func goToSearchView(_ sender: Any) {
         if let  vc = UIStoryboard (name: "Main", bundle: nil).instantiateViewController( identifier:"searchView") as? SearchViewController{
 
@@ -31,6 +37,9 @@ class ViewController: UIViewController {
     }
 }
 
+/**
+ used to add properties on element, here border radius
+ */
 extension UIView {
     @IBInspectable
     var cornerRadius: CGFloat {

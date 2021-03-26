@@ -8,101 +8,6 @@
 import Foundation
 import UIKit
 
-/**
- contains only usefull data to display for movie search
- */
-struct Movie : Codable{
-    let original_title: String
-    let id : Int
-}
-
-extension Movie{
-    init?(json: [String: AnyObject]) {
-        guard let original_title = json["original_title"] as? String, let id = json["id"] as? Int
-        else {
-            return nil
-        }
-
-        self.original_title = original_title
-        self.id = id
-    }
-
-}
-
-
-
-struct MovieDetails : Codable{
-    let original_title: String
-    let id : Int
-    let release_date: String
-    let poster_path : String
-    let genres: [String]
-    let vote_average : Float
-    let overview : String
-}
-
-extension MovieDetails{
-
-    init?(json: [String: AnyObject]) {
-        
-        guard let original_title = json["original_title"] as? String,
-              let id = json["id"] as? Int,
-              let release_date = json["release_date"] as? String,
-              let poster_path = json["poster_path"] as? String,
-              let genres = json["genres"] as? [[String: AnyObject]],
-              let vote_average = json["vote_average"] as? NSNumber,
-              let overview = json["overview"] as? String
-        else{
-            return nil
-        }
-
-        let voteFloat = vote_average.floatValue
-
-        var genresStrArr = [String]()
-        genresStrArr.append("horror")
-        
-        for item in genres {
-            genresStrArr.append(item["name"] as! String)
-        }
-        
-        
-        
-        self.original_title = original_title
-        self.id = id
-        self.release_date = release_date
-        self.poster_path = poster_path
-        self.genres = genresStrArr
-        self.vote_average = voteFloat
-        self.overview = overview
-    }
-
-}
-
-
-
-struct MovieVideo : Codable{
-    let key: String
-    let site : String
-    let id  : String
-    let name : String
-    let type : String
-}
-
-extension MovieVideo{
-   init?(json: [String: AnyObject]) {
-       guard let key = json["key"] as? String, let site = json["site"] as? String,  let id = json["id"] as? String, let name = json["name"] as? String,  let type = json["type"] as? String
-       else {
-           return nil
-       }
-
-        self.key = key
-        self.site = site
-        self.id = id
-        self.name = name
-        self.type = type
-   }
-
-}
 
 class ApiMovieDb {
     let properties = Properties.parseConfig()
@@ -116,12 +21,34 @@ class ApiMovieDb {
         return properties.API_URL + "movie/\(id)?api_key=" + properties.API_KEY
     }
     
+    
+    
+    
+    func getImageFromMovieDbApi(path:String) -> String{
+        return "https://image.tmdb.org/t/p/w500" + path
+    }
+    func getAllMovieImage(id:Int, language:String) -> String{
+        return "https://api.themoviedb.org/3/movie/\(id)/images?api_key=" + properties.API_KEY + "&language=" + language
+    }
+    
+    func getAllMovieVideo(id:Int, language:String?) -> String{
+        return "https://api.themoviedb.org/3/movie/\(id)/videos?api_key=" + properties.API_KEY + ((language ?? "").isEmpty ? "" : "&language=" + language!)
+    }
+    
+    func getYoutubeImageLink(key:String) -> String{
+        return "https://i.ytimg.com/vi/" + key + "/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&amp;rs=AOn4CLCw1BAmwgAuP1vSuZ4ucr35TYfmOA"
+    }
+    func getYoutubeVideoLink(key:String) -> String{
+        return "https://www.youtube.com/watch?v=" + key
+    }
+    
+    
     /**
         because of API, page =1 return 20 result. we don't want to display more than this
         to avoid problem when loading
      */
     // @ todo : fix error when space or special char
-    func searchMovies(query:String, completion: @escaping ([Movie]) -> Void) {
+    func searchMoviesByName(query:String, completion: @escaping ([Movie]) -> Void) {
         
         let urlString = self.getSearchUrl(query: query)
         //let urlString = self.getSearchUrl(query: query) .addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
@@ -186,7 +113,7 @@ class ApiMovieDb {
     }
 
     func searchMovieVideos(id:Int, completion: @escaping ([MovieVideo]) -> Void) {
-        let urlString = self.getAllVideo(id: id, language: nil)
+        let urlString = self.getAllMovieVideo(id: id, language: nil)
         
         var movies = [MovieVideo]()
         let config = URLSessionConfiguration.default
@@ -214,22 +141,4 @@ class ApiMovieDb {
         }).resume()
     }
     
-    
-    func getImage(path:String) -> String{
-        return "https://image.tmdb.org/t/p/w500" + path
-    }
-    func getAllImage(id:Int, language:String) -> String{
-        return "https://api.themoviedb.org/3/movie/\(id)/images?api_key=" + properties.API_KEY + "&language=" + language
-    }
-    
-    func getAllVideo(id:Int, language:String?) -> String{
-        return "https://api.themoviedb.org/3/movie/\(id)/videos?api_key=" + properties.API_KEY + ((language ?? "").isEmpty ? "" : "&language=" + language!)
-    }
-    
-    func getYoutubeImageLink(key:String) -> String{
-        return "https://i.ytimg.com/vi/" + key + "/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&amp;rs=AOn4CLCw1BAmwgAuP1vSuZ4ucr35TYfmOA"
-    }
-    func getYoutubeVideoLink(key:String) -> String{
-        return "https://www.youtube.com/watch?v=" + key
-    }
 }

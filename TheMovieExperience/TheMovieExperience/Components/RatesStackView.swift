@@ -34,7 +34,7 @@ class RatesStackView: UIStackView {
         let remaining = (rateValue / Float(unit)).truncatingRemainder(dividingBy: Float(unit))
         
         var nbHalf = 0
-        if (remaining >= 0.25 || remaining <= 0.75) {
+        if (remaining >= (0.25 * Float(unit)) && remaining <= (0.75 * Float(unit))) {
             nbHalf = 1
         }
         let nbEmpty = self.starMax - nbHalf - nbFilled

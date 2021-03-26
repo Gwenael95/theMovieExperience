@@ -84,7 +84,7 @@ class FilmDetailsViewController: UIViewController {
             DispatchQueue.main.async {
                 self.filmName = result.original_title
                 self.date = result.release_date
-                self.apiImgUrl = self.apiMovie.getImage(path: result.poster_path)
+                self.apiImgUrl = self.apiMovie.getImageFromMovieDbApi(path: result.poster_path)
                 self.overView = result.overview
                 self.voteAverage = result.vote_average
                 self.genres = result.genres

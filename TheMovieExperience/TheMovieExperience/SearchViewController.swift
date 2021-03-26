@@ -48,7 +48,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         self.data.removeAll()
-        let _: () = apiMovie.searchMovies(query:searchBar.text!) { result in
+        let _: () = apiMovie.searchMoviesByName(query:searchBar.text!) { result in
             print(result)
            
             DispatchQueue.main.async {

@@ -51,7 +51,6 @@ class FilmDetailsViewController: UIViewController {
     
     var previewImgYoutubeUrl = "https://i.ytimg.com/vi/" + "ftTX4FoBWlE" + "/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&amp;rs=AOn4CLCw1BAmwgAuP1vSuZ4ucr35TYfmOA"
     
-    var videos = [Video]()
     
     let apiMovie = ApiMovieDb()
 
@@ -75,7 +74,7 @@ class FilmDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.setupTable(view: self)
-        self.tableView.loadSampleVideos()
+        
 
         let _: () = apiMovie.searchMovieDetails(id:self.id) { result in
            
@@ -88,6 +87,14 @@ class FilmDetailsViewController: UIViewController {
                 self.genres = result.genres
                 self.tableView.reloadData()
                 self.loadPage()
+            }
+
+        }
+        let _: () = apiMovie.searchMovieVideos(id:self.id) { result in
+           
+            DispatchQueue.main.async {
+                self.tableView.loadVideos(videos: result)
+                self.tableView.reloadData()
             }
 
         }

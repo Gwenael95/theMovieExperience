@@ -16,8 +16,7 @@ struct Movie : Codable{
     let id : Int
 }
 
-extension Movie{ // voir comment structurer les donné de l'artiste via un json recu pour un artiste; new Artist; .name = json["name"] par ex ?)
-
+extension Movie{
     init?(json: [String: AnyObject]) {
         guard let original_title = json["original_title"] as? String, let id = json["id"] as? Int
         else {
@@ -31,6 +30,7 @@ extension Movie{ // voir comment structurer les donné de l'artiste via un json 
 }
 
 
+
 struct MovieDetails : Codable{
     let original_title: String
     let id : Int
@@ -41,7 +41,7 @@ struct MovieDetails : Codable{
     let overview : String
 }
 
-extension MovieDetails{ // voir comment structurer les donné de l'artiste via un json recu pour un artiste; new Artist; .name = json["name"] par ex ?)
+extension MovieDetails{
 
     init?(json: [String: AnyObject]) {
         
@@ -75,6 +75,32 @@ extension MovieDetails{ // voir comment structurer les donné de l'artiste via u
         self.vote_average = voteFloat
         self.overview = overview
     }
+
+}
+
+
+
+struct MovieVideo : Codable{
+    let key: String
+    let site : String
+    let id  : String
+    let name : String
+    let type : String
+}
+
+extension MovieVideo{
+   init?(json: [String: AnyObject]) {
+       guard let key = json["key"] as? String, let site = json["site"] as? String,  let id = json["id"] as? String, let name = json["name"] as? String,  let type = json["type"] as? String
+       else {
+           return nil
+       }
+
+        self.key = key
+        self.site = site
+        self.id = id
+        self.name = name
+        self.type = type
+   }
 
 }
 
@@ -163,6 +189,38 @@ class ApiMovieDb {
         }).resume()
     }
 
+    func searchMovieVideos(id:Int, completion: @escaping ([MovieVideo]) -> Void) {
+        let urlString = self.getAllVideo(id: id, language: nil)
+        
+        var movies = [MovieVideo]()
+        let config = URLSessionConfiguration.default
+        let session = URLSession(configuration: config)
+        
+        let urlFind = URL(string: urlString)
+        let request = URLRequest(url: urlFind!)
+
+        session.dataTask(with:request, completionHandler: { (data, response, error) in
+            guard let data = data, error == nil else { return }
+
+            do {
+                if let json = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) {
+                    if let data = json as? [String: AnyObject] {
+                        if let items = data["results"] as? [[String: AnyObject]] {
+                            for item in items {
+                                if let movie = MovieVideo(json:item){
+                                    movies.append(movie)
+                                }
+                            }
+                        }
+                    }
+                }
+                completion(movies)
+
+            } catch let error as NSError {
+                completion([])
+            }
+        }).resume()
+    }
     
     
     func getImage(path:String) -> String{
@@ -172,12 +230,14 @@ class ApiMovieDb {
         return "https://api.themoviedb.org/3/movie/\(id)/images?api_key=" + properties.API_KEY + "&language=" + language
     }
     
-    func getAllVideo(id:Int, language:String) -> String{
-        return "https://api.themoviedb.org/3/movie/\(id)/videos?api_key=" + properties.API_KEY + "&language=" + language
+    func getAllVideo(id:Int, language:String?) -> String{
+        return "https://api.themoviedb.org/3/movie/\(id)/videos?api_key=" + properties.API_KEY + ((language ?? "").isEmpty ? "" : "&language=" + language!)
     }
     
-    func getYoutubeLink(key:String) -> String{
+    func getYoutubeImageLink(key:String) -> String{
         return "https://i.ytimg.com/vi/" + key + "/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&amp;rs=AOn4CLCw1BAmwgAuP1vSuZ4ucr35TYfmOA"
     }
-    
+    func getYoutubeVideoLink(key:String) -> String{
+        return "https://www.youtube.com/watch?v=" + key
+    }
 }

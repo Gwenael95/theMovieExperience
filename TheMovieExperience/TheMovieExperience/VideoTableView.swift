@@ -9,38 +9,18 @@ import UIKit
 
 class VideoTableView: UITableView , UITableViewDelegate, UITableViewDataSource  {
 
-    var videos = [Video]()
+    var videos = [MovieVideo]()
+    let apiMovie = ApiMovieDb()
     
     func setupTable(view : UIViewController){
         self.delegate = self
         self.dataSource = self
     }
     
-    func loadVideos(videos : [Video]){
+    func loadVideos(videos : [MovieVideo]){
         self.videos = videos
     }
     
-    func loadSampleVideos() {
-    
-        let videoYoutubeUrl = "https://www.youtube.com/watch?v=" + "ftTX4FoBWlE" // + key
-    
-        let previewImgYoutubeUrl = "https://i.ytimg.com/vi/" + "ftTX4FoBWlE" + "/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&amp;rs=AOn4CLCw1BAmwgAuP1vSuZ4ucr35TYfmOA"
-        
-        
-        guard let video1 = Video(name: "last fight", imageLink: previewImgYoutubeUrl, type: "Trailer", videoLink: videoYoutubeUrl) else {
-            fatalError("Unable to instantiate meal1")
-        }
-         
-        guard let video2 = Video(name: "spiderman", imageLink: previewImgYoutubeUrl, type: "Trailer", videoLink:videoYoutubeUrl) else {
-            fatalError("Unable to instantiate meal1")
-        }
-         
-        guard let video3 = Video(name: "superman", imageLink: previewImgYoutubeUrl, type: "Trailer", videoLink:videoYoutubeUrl) else {
-            fatalError("Unable to instantiate meal1")
-        }
-        self.videos += [video1, video2, video3]
-        
-    }
     
     
     
@@ -62,7 +42,8 @@ class VideoTableView: UITableView , UITableViewDelegate, UITableViewDataSource  
         
         // Fetches the appropriate video for the data source layout.
         let video = self.videos[indexPath.row]
-        let imgUrl = URL(string: video.imageLink)
+        
+        let imgUrl = URL(string: apiMovie.getYoutubeImageLink(key: video.key))
         
         cell.videoNameLabel.text = video.name
         cell.videoImageView.downloadImage(from: imgUrl!)
@@ -87,7 +68,7 @@ class VideoTableView: UITableView , UITableViewDelegate, UITableViewDataSource  
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let  vc = UIStoryboard(name:"Main", bundle: nil).instantiateViewController( identifier:"webView") as? WebViewController
         {
-            vc.link = self.videos[indexPath.row].videoLink
+            vc.link = apiMovie.getYoutubeVideoLink(key: self.videos[indexPath.row].key)
             print(vc.link)
             self.window?.rootViewController?.present(vc, animated:true , completion:nil)
         }

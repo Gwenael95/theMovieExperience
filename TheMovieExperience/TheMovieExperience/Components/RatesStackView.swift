@@ -33,23 +33,13 @@ class RatesStackView: UIStackView {
     }
     
     private func addImage(image:UIImage, nb:Int){
-        for _ in 1...nb {
-            let star = UIImageView(image: image)
-            self.addArrangedSubview(star)
+        if nb>0 {
+            for _ in 1...nb {
+                let star = UIImageView(image: image)
+                self.addArrangedSubview(star)
+            }
         }
+        
     }
  
-    
-    func clearStackView(){
-        let removedSubviews = arrangedSubviews.reduce([]) { (allSubviews, subview) -> [UIView] in
-            self.removeArrangedSubview(subview)
-            return allSubviews + [subview]
-        }
-        
-        // Deactivate all constraints
-        NSLayoutConstraint.deactivate(removedSubviews.flatMap({ $0.constraints }))
-        
-        // Remove the views from self
-        removedSubviews.forEach({ $0.removeFromSuperview() })
-    }
 }

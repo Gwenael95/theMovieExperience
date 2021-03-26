@@ -14,9 +14,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
     }
     
-
-
-    
     /**
         used to go to search view with navigation controller
      */
@@ -28,17 +25,3 @@ class ViewController: UIViewController {
     }
 }
 
-/**
- used to add properties on element, here border radius
- */
-extension UIView {
-    @IBInspectable
-    var cornerRadius: CGFloat {
-        get {
-            return layer.cornerRadius
-        }
-        set {
-            layer.cornerRadius = newValue
-        }
-    }
-}

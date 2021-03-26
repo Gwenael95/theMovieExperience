@@ -8,31 +8,6 @@
 import UIKit
 import WebKit
 
-extension UIImageView {
-    
-    /**
-     get data from an url
-    */
-   func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
-      URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
-   }
-    
-    /**
-     download image from an url to display image to the current UIImageView
-     */
-   func downloadImage(from url: URL) {
-      getData(from: url) {
-         data, response, error in
-         guard let data = data, error == nil else {
-            return
-         }
-         DispatchQueue.main.async() {
-            self.image = UIImage(data: data)
-         }
-      }
-   }
-}
-
 class FilmDetailsViewController: UIViewController {
     var filmName = "La derniere bataille"
     var id = 1
@@ -66,12 +41,12 @@ class FilmDetailsViewController: UIViewController {
         let _: () = apiMovie.searchMovieDetails(id:self.id) { result in
            
             DispatchQueue.main.async {
-                self.filmName = result.original_title
-                self.date = result.release_date
-                self.apiImgUrl = self.apiMovie.getImageFromMovieDbApi(path: result.poster_path)
-                self.overView = result.overview
-                self.voteAverage = result.vote_average
-                self.genres = result.genres
+                self.filmName = result!.original_title
+                self.date = result!.release_date
+                self.apiImgUrl = self.apiMovie.getImageFromMovieDbApi(path: result!.poster_path)
+                self.overView = result!.overview
+                self.voteAverage = result!.vote_average
+                self.genres = result!.genres
                 self.loadPage()
             }
 
@@ -105,28 +80,4 @@ class FilmDetailsViewController: UIViewController {
     }
     
     
-    
-    
-    /**
-     @deprecated
-        used to download and set an image in a UIImageView
-     */
-    /*
-    func setImageByDownload(from url: String, imageView : UIImageView) {
-        guard let imageURL = URL(string: url) else { return }
-
-        // just not to cause a deadlock in UI!
-        DispatchQueue.global().async {
-            guard let imageData = try? Data(contentsOf: imageURL) else { return }
-
-            let image = UIImage(data: imageData)
-            DispatchQueue.main.async {
-                imageView.image = image
-            }
-        }
-    }
-    */
-    
-    
-
 }

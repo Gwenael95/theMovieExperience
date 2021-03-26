@@ -56,7 +56,7 @@ extension MovieDetails{ // voir comment structurer les donné de l'artiste via u
             return nil
         }
 
-        let voteFloat = vote_average.floatValue 
+        let voteFloat = vote_average.floatValue
 
         var genresStrArr = [String]()
         genresStrArr.append("horror")
@@ -168,8 +168,16 @@ class ApiMovieDb {
     func getImage(path:String) -> String{
         return "https://image.tmdb.org/t/p/w500" + path
     }
+    func getAllImage(id:Int, language:String) -> String{
+        return "https://api.themoviedb.org/3/movie/\(id)/images?api_key=" + properties.API_KEY + "&language=" + language
+    }
+    
+    func getAllVideo(id:Int, language:String) -> String{
+        return "https://api.themoviedb.org/3/movie/\(id)/videos?api_key=" + properties.API_KEY + "&language=" + language
+    }
     
     func getYoutubeLink(key:String) -> String{
         return "https://i.ytimg.com/vi/" + key + "/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&amp;rs=AOn4CLCw1BAmwgAuP1vSuZ4ucr35TYfmOA"
     }
+    
 }

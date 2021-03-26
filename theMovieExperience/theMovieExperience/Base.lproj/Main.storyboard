@@ -88,26 +88,6 @@
                                     <action selector="goToSearchView:" destination="gXY-Bx-Rgx" eventType="touchUpInside" id="1W1-77-luU"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="p6b-VE-MaD">
-                                <rect key="frame" x="127" y="572" width="161" height="161"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="separatorColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="Trending">
-                                    <color key="titleColor" systemColor="labelColor"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                        <real key="value" value="0.0"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="15"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="goToTrendingView:" destination="gXY-Bx-Rgx" eventType="touchUpInside" id="icF-cJ-ZqW"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="9aX-iz-3Wi"/>
                         <color key="backgroundColor" red="0.59302366622770675" green="0.59302366622770675" blue="0.59302366622770675" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

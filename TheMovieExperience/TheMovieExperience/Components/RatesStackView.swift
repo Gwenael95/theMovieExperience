@@ -33,10 +33,13 @@ class RatesStackView: UIStackView {
     }
     
     private func addImage(image:UIImage, nb:Int){
-        for _ in 1...nb {
-            let star = UIImageView(image: image)
-            self.addArrangedSubview(star)
+        if nb>0 {
+            for _ in 1...nb {
+                let star = UIImageView(image: image)
+                self.addArrangedSubview(star)
+            }
         }
+        
     }
  
 }

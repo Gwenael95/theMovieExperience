@@ -41,12 +41,12 @@ class FilmDetailsViewController: UIViewController {
         let _: () = apiMovie.searchMovieDetails(id:self.id) { result in
            
             DispatchQueue.main.async {
-                self.filmName = result.original_title
-                self.date = result.release_date
-                self.apiImgUrl = self.apiMovie.getImageFromMovieDbApi(path: result.poster_path)
-                self.overView = result.overview
-                self.voteAverage = result.vote_average
-                self.genres = result.genres
+                self.filmName = result!.original_title
+                self.date = result!.release_date
+                self.apiImgUrl = self.apiMovie.getImageFromMovieDbApi(path: result!.poster_path)
+                self.overView = result!.overview
+                self.voteAverage = result!.vote_average
+                self.genres = result!.genres
                 self.loadPage()
             }
 
@@ -80,28 +80,4 @@ class FilmDetailsViewController: UIViewController {
     }
     
     
-    
-    
-    /**
-     @deprecated
-        used to download and set an image in a UIImageView
-     */
-    /*
-    func setImageByDownload(from url: String, imageView : UIImageView) {
-        guard let imageURL = URL(string: url) else { return }
-
-        // just not to cause a deadlock in UI!
-        DispatchQueue.global().async {
-            guard let imageData = try? Data(contentsOf: imageURL) else { return }
-
-            let image = UIImage(data: imageData)
-            DispatchQueue.main.async {
-                imageView.image = image
-            }
-        }
-    }
-    */
-    
-    
-
 }

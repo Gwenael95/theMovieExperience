@@ -15,7 +15,6 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var searchBar: UISearchBar!
     
     var data  = [Movie]()
-        
     let apiMovie = ApiMovieDb()
 
     override func viewDidLoad() {
@@ -36,10 +35,8 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("click on table view movies")
         if let  vc = UIStoryboard(name:"Main", bundle: nil).instantiateViewController( identifier:"filmDetailsView") as? FilmDetailsViewController
         {
-            print("should go on details")
             vc.id = self.data[indexPath.row].id
             self.show(vc, sender: UINavigationController(rootViewController: vc))
         }

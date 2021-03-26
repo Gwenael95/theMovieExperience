@@ -35,7 +35,6 @@ extension CharacterSet {
 class ApiMovieDb {
     let properties = Properties.parseConfig()
 
-    
     func getSearchUrl(query : String) -> String{
         return properties.API_URL + "search/movie?api_key=" + properties.API_KEY + "&query=" + query + "&page=1"
     }
@@ -43,9 +42,6 @@ class ApiMovieDb {
     func getMovieDetailsUrl(id : Int) -> String{
         return properties.API_URL + "movie/\(id)?api_key=" + properties.API_KEY
     }
-    
-    
-    
     
     func getImageFromMovieDbApi(path:String) -> String{
         return "https://image.tmdb.org/t/p/w500" + path

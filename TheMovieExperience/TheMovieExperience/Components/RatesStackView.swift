@@ -14,19 +14,6 @@ class RatesStackView: UIStackView {
 
     let rateMax = 10
     let starMax = 5
-
-    func clearStackView(){
-        let removedSubviews = arrangedSubviews.reduce([]) { (allSubviews, subview) -> [UIView] in
-            self.removeArrangedSubview(subview)
-            return allSubviews + [subview]
-        }
-        
-        // Deactivate all constraints
-        NSLayoutConstraint.deactivate(removedSubviews.flatMap({ $0.constraints }))
-        
-        // Remove the views from self
-        removedSubviews.forEach({ $0.removeFromSuperview() })
-    }
     
     func updateUIRate(rateValue : Float){
         let unit = self.rateMax / self.starMax // ==2
@@ -51,5 +38,18 @@ class RatesStackView: UIStackView {
             self.addArrangedSubview(star)
         }
     }
+ 
     
+    func clearStackView(){
+        let removedSubviews = arrangedSubviews.reduce([]) { (allSubviews, subview) -> [UIView] in
+            self.removeArrangedSubview(subview)
+            return allSubviews + [subview]
+        }
+        
+        // Deactivate all constraints
+        NSLayoutConstraint.deactivate(removedSubviews.flatMap({ $0.constraints }))
+        
+        // Remove the views from self
+        removedSubviews.forEach({ $0.removeFromSuperview() })
+    }
 }

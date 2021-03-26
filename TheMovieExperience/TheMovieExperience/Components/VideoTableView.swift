@@ -21,9 +21,7 @@ class VideoTableView: UITableView , UITableViewDelegate, UITableViewDataSource  
         self.videos = videos
     }
     
-    
-    
-    
+        
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -40,7 +38,7 @@ class VideoTableView: UITableView , UITableViewDelegate, UITableViewDataSource  
             fatalError("The dequeued cell is not an instance of videoTableViewCell.")
         }
         
-        // Fetches the appropriate video for the data source layout.
+        // Fetches the appropriate video 
         let video = self.videos[indexPath.row]
         
         let imgUrl = URL(string: apiMovie.getYoutubeImageLink(key: video.key))
@@ -49,14 +47,6 @@ class VideoTableView: UITableView , UITableViewDelegate, UITableViewDataSource  
         cell.videoImageView.downloadImage(from: imgUrl!)
         cell.videoTypeLabel.text = video.type
         
-        /* customised background
-        if (indexPath.row % 2 == 0) {
-            cell.backgroundColor = UIColor.purple
-        }
-        else{
-            cell.backgroundColor = UIColor.yellow
-        }
-        */
         return cell
     }
     

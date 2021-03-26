@@ -33,26 +33,29 @@ extension UIImageView {
    }
 }
 
-class FilmDetailsViewController: UIViewController /* , UITableViewDataSource, UITableViewDelegate */{
-
-    var authors : [String] = ["Stanlee Kubric", "Steven Spielberg"]
-    var actors : [String] = ["Jean Dujardin", "Jack Nicholson", "Jean Reno"]
+class FilmDetailsViewController: UIViewController {
     var filmName = "La derniere bataille"
-    var poster = "https://image.blockbusterbd.net/00416_main_image_04072019225805.png" // an url
+    var id = 1
     var date = "19 mai 1974"
-    let apiImgUrl = "https://image.tmdb.org/t/p/w500/" // + path
-    // get image by language https://api.themoviedb.org/3/movie/551/images?api_key=b08dd80fbf5aa44ca65a80f96b6452e2&language=en
+    var poster = "https://image.blockbusterbd.net/00416_main_image_04072019225805.png" // an url
+    var genres = [String]()
+    var voteAverage : Float = 0
+    var overView = ""
     
-    let videoYoutubeUrl = "https://www.youtube.com/watch?v=" + "ftTX4FoBWlE" // + key
-    // get video keys for youtube : https://api.themoviedb.org/3/movie/551/videos?api_key=b08dd80fbf5aa44ca65a80f96b6452e2&language=en-US
     
-    let previewImgYoutubeUrl = "https://i.ytimg.com/vi/" + "ftTX4FoBWlE" + "/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&amp;rs=AOn4CLCw1BAmwgAuP1vSuZ4ucr35TYfmOA"
+   
+    var apiImgUrl = "https://image.tmdb.org/t/p/w500/" // + path
+
+    var videoYoutubeUrl = "https://www.youtube.com/watch?v=" + "ftTX4FoBWlE" // + key
+    // get videos keys for youtube : https://api.themoviedb.org/3/movie/551/videos?api_key=b08dd80fbf5aa44ca65a80f96b6452e2&language=en-US
     
-    var videos = [Video]()
+    var previewImgYoutubeUrl = "https://i.ytimg.com/vi/" + "ftTX4FoBWlE" + "/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&amp;rs=AOn4CLCw1BAmwgAuP1vSuZ4ucr35TYfmOA"
+    
+    
+    let apiMovie = ApiMovieDb()
 
     
-    @IBOutlet weak var authorsLabel: UILabel!
-    @IBOutlet weak var actorsLabel: UILabel!
+
     
     @IBOutlet weak var filmNameLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
@@ -60,84 +63,63 @@ class FilmDetailsViewController: UIViewController /* , UITableViewDataSource, UI
     @IBOutlet weak var backgroundImage: UIImageView!
     
     @IBOutlet weak var tableView: VideoTableView!
+
     
+    
+    @IBOutlet weak var overviewLabel: UILabel!
+    @IBOutlet weak var noteLabel: UILabel!
+    
+    @IBOutlet weak var rateView: RatesStackView!
+    
+    
+    @IBOutlet weak var genresLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         self.tableView.setupTable(view: self)
         
-        //self.tableView.delegate = self
-        //self.tableView.dataSource = self
-        self.tableView.loadSampleVideos()
-        self.loadPage()
+
+        let _: () = apiMovie.searchMovieDetails(id:self.id) { result in
+           
+            DispatchQueue.main.async {
+                self.filmName = result.original_title
+                self.date = result.release_date
+                self.apiImgUrl = self.apiMovie.getImage(path: result.poster_path)
+                self.overView = result.overview
+                self.voteAverage = result.vote_average
+                self.genres = result.genres
+                self.tableView.reloadData()
+                self.loadPage()
+            }
+
+        }
+        let _: () = apiMovie.searchMovieVideos(id:self.id) { result in
+           
+            DispatchQueue.main.async {
+                self.tableView.loadVideos(videos: result)
+                self.tableView.reloadData()
+            }
+
+        }
+        //self.loadPage()
     }
     
     func loadPage(){
-        setUIContent(date: self.date, filmName: self.filmName, authors: self.authors.joined(separator: ", "), actors: self.actors.joined(separator: ", "), urlString:self.poster)
+        setUIContent(date: self.date, filmName: self.filmName,  overview: self.overView, genres: self.genres.joined(separator: ", "), urlString:self.apiImgUrl, note: self.voteAverage)
     }
     
-    func setUIContent(date : String, filmName: String, authors:String, actors:String, urlString:String){
+    func setUIContent(date : String, filmName: String, overview:String, genres: String, urlString:String, note:Float){
         self.dateLabel.text = "Date : " + date
         self.filmNameLabel.text = filmName
-        self.authorsLabel.text = authors
-        self.actorsLabel.text = actors
-        
+        self.overviewLabel.text = overView
+        self.genresLabel.text = genres
+        self.noteLabel.text = "\(note)"
+        self.rateView.updateUIRate(rateValue: note)
         let url = URL(string: urlString)
         self.backgroundImage.downloadImage(from: url!)
         //self.setImageByDownload(from: urlString)
     }
     
-    
-    /*
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.videos.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        // Table view cells are reused and should be dequeued using a cell identifier.
-        let cellIdentifier = "videoTableViewCell"
-        
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? VideoTableViewCell  else {
-            fatalError("The dequeued cell is not an instance of videoTableViewCell.")
-        }
-        
-        // Fetches the appropriate video for the data source layout.
-        let video = self.videos[indexPath.row]
-        //let imgUrl = URL(string: video.imageLink)
-        
-        cell.videoNameLabel.text = video.name
-        //cell.videoImageView.downloadImage(from: imgUrl!)
-        cell.videoTypeLabel.text = video.type
-        
-        if (indexPath.row % 2 == 0) {
-            cell.backgroundColor = UIColor.purple
-        }
-        else{
-            cell.backgroundColor = UIColor.yellow
-        }
-
-        
-        return cell
-    }
-    
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        if let  vc = UIStoryboard(name:"Main", bundle: nil).instantiateViewController( identifier:"webView") as? WebViewController
-        {
-            vc.link = self.videos[indexPath.row].videoLink
-            self.present(vc, animated:true , completion:nil)
-            
-        }
- 
-    }
- */
     
     
     
@@ -162,16 +144,5 @@ class FilmDetailsViewController: UIViewController /* , UITableViewDataSource, UI
     */
     
     
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

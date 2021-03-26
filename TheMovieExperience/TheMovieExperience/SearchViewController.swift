@@ -6,49 +6,58 @@
 //
 
 import UIKit
+import Foundation
 
-class SearchViewController: UIViewController, UITableViewDataSource, UISearchBarDelegate {
+
+class SearchViewController: UIViewController, UITableViewDataSource, UITableViewDelegate,  UISearchBarDelegate {
     
     @IBOutlet weak var tableView: UITableView!
-    
     @IBOutlet weak var searchBar: UISearchBar!
     
-    
-    let data = ["New York, NY", "Los Angeles, CA", "Chicago, IL", "Houston, TX",
-        "Philadelphia, PA", "Phoenix, AZ", "San Diego, CA", "San Antonio, TX",
-        "Dallas, TX", "Detroit, MI", "San Jose, CA", "Indianapolis, IN",
-        "Jacksonville, FL", "San Francisco, CA", "Columbus, OH", "Austin, TX",
-        "Memphis, TN", "Baltimore, MD", "Charlotte, ND", "Fort Worth, TX"]
-
-    var filteredData: [String]!
+    var data  = [Movie]()
+        
+    let apiMovie = ApiMovieDb()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
+        tableView.delegate = self
         searchBar.delegate = self
-        filteredData = data
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableCell", for: indexPath) as UITableViewCell
-        cell.textLabel?.text = filteredData[indexPath.row]
+        cell.textLabel?.text = data[indexPath.row].original_title
         return cell
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return filteredData.count
+        return data.count
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("click on table view movies")
+        if let  vc = UIStoryboard(name:"Main", bundle: nil).instantiateViewController( identifier:"filmDetailsView") as? FilmDetailsViewController
+        {
+            print("should go on details")
+            vc.id = self.data[indexPath.row].id
+            self.show(vc, sender: UINavigationController(rootViewController: vc))
+        }
     }
 
-    // This method updates filteredData based on the text in the Search Box
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
-        filteredData = searchText.isEmpty ? data : data.filter { (item: String) -> Bool in
-            // If dataItem matches the searchText, return true to include it
-            return item.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
+        self.data.removeAll()
+        let _: () = apiMovie.searchMovies(query:searchBar.text!) { result in
+            print(result)
+           
+            DispatchQueue.main.async {
+                self.data = result
+                self.tableView.reloadData()
+            }
+
         }
-        
-        //@todo :  launch api request with searchbar content
-        
-        tableView.reloadData()
     }
+    
+
 }

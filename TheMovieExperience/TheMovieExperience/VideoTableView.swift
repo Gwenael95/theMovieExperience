@@ -9,35 +9,18 @@ import UIKit
 
 class VideoTableView: UITableView , UITableViewDelegate, UITableViewDataSource  {
 
-    var videos = [Video]()
+    var videos = [MovieVideo]()
+    let apiMovie = ApiMovieDb()
     
     func setupTable(view : UIViewController){
         self.delegate = self
         self.dataSource = self
     }
     
-    
-    func loadSampleVideos() {
-    
-        let videoYoutubeUrl = "https://www.youtube.com/watch?v=" + "ftTX4FoBWlE" // + key
-    
-        let previewImgYoutubeUrl = "https://i.ytimg.com/vi/" + "ftTX4FoBWlE" + "/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&amp;rs=AOn4CLCw1BAmwgAuP1vSuZ4ucr35TYfmOA"
-        
-        
-        guard let video1 = Video(name: "last fight", imageLink: previewImgYoutubeUrl, type: "Trailer", videoLink: videoYoutubeUrl) else {
-            fatalError("Unable to instantiate meal1")
-        }
-         
-        guard let video2 = Video(name: "spiderman", imageLink: previewImgYoutubeUrl, type: "Trailer", videoLink:videoYoutubeUrl) else {
-            fatalError("Unable to instantiate meal1")
-        }
-         
-        guard let video3 = Video(name: "superman", imageLink: previewImgYoutubeUrl, type: "Trailer", videoLink:videoYoutubeUrl) else {
-            fatalError("Unable to instantiate meal1")
-        }
-        self.videos += [video1, video2, video3]
-        
+    func loadVideos(videos : [MovieVideo]){
+        self.videos = videos
     }
+    
     
     
     
@@ -51,17 +34,16 @@ class VideoTableView: UITableView , UITableViewDelegate, UITableViewDataSource  
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        // Table view cells are reused and should be dequeued using a cell identifier.
         let cellIdentifier = "videoTableViewCell"
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? VideoTableViewCell  else {
             fatalError("The dequeued cell is not an instance of videoTableViewCell.")
         }
         
-        
         // Fetches the appropriate video for the data source layout.
         let video = self.videos[indexPath.row]
-        let imgUrl = URL(string: video.imageLink)
+        
+        let imgUrl = URL(string: apiMovie.getYoutubeImageLink(key: video.key))
         
         cell.videoNameLabel.text = video.name
         cell.videoImageView.downloadImage(from: imgUrl!)
@@ -81,24 +63,15 @@ class VideoTableView: UITableView , UITableViewDelegate, UITableViewDataSource  
     
     /**
             used to display a web view with a youtube video, lauch thanks to video url (String)
+            When clicking on a cell
      */
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let  vc = UIStoryboard(name:"Main", bundle: nil).instantiateViewController( identifier:"webView") as? WebViewController
         {
-            vc.link = self.videos[indexPath.row].videoLink
+            vc.link = apiMovie.getYoutubeVideoLink(key: self.videos[indexPath.row].key)
             print(vc.link)
             self.window?.rootViewController?.present(vc, animated:true , completion:nil)
         }
     }
     
-    
-    
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
-
 }

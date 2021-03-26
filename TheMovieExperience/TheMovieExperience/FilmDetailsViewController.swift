@@ -49,7 +49,7 @@ class FilmDetailsViewController: UIViewController /* , UITableViewDataSource, UI
     let previewImgYoutubeUrl = "https://i.ytimg.com/vi/" + "ftTX4FoBWlE" + "/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&amp;rs=AOn4CLCw1BAmwgAuP1vSuZ4ucr35TYfmOA"
     
     var videos = [Video]()
-
+    var id = 1
     
     @IBOutlet weak var authorsLabel: UILabel!
     @IBOutlet weak var actorsLabel: UILabel!

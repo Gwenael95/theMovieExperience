@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Search View Controller-->
+        <!--Search-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="searchView" id="BYZ-38-t0r" customClass="SearchViewController" customModule="TheMovieExperience" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="searchView" title="Search" id="BYZ-38-t0r" customClass="SearchViewController" customModule="TheMovieExperience" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -143,10 +143,10 @@
             </objects>
             <point key="canvasLocation" x="784.05797101449286" y="119.86607142857142"/>
         </scene>
-        <!--Film Details View Controller-->
+        <!--movie details-->
         <scene sceneID="xpp-I4-p1M">
             <objects>
-                <viewController storyboardIdentifier="filmDetailsView" id="SEc-pH-W4l" customClass="FilmDetailsViewController" customModule="TheMovieExperience" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="filmDetailsView" title="movie details" id="SEc-pH-W4l" customClass="FilmDetailsViewController" customModule="TheMovieExperience" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qxP-aG-C9d">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

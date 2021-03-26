@@ -14,9 +14,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    @IBAction func goToTrendingView(_ sender: Any) {
-    }
-    
+
 
     
     /**
